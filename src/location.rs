@@ -1,3 +1,7 @@
+use crate::deities::Deities;
+use crate::{Government, Individuals};
+use crate::language::Languages;
+
 enum Continents {
     Avistan,
     Garund,
@@ -10,7 +14,27 @@ enum Continents {
     Sarusan,
 }
 
-enum Nations {
+
+enum MajorAreas {
+    // todo review
+    SagaLands,
+    EyeOfDread,
+    ShiningKingdoms,
+    OldCheliax,
+    Absalom,
+    GoldenRoad,
+    HighSeas,
+    ImpossibleLands,
+    BrokenLands,
+}
+
+pub enum PlanarNations {
+    Aralidae,
+    Aylok,
+    AzureEmpire,
+}
+
+pub enum Nations {
     Absalom,
     AgamazarRaj,
     Alban,
@@ -18,11 +42,8 @@ enum Nations {
     Alkenstar,
     Almhult,
     Andoran,
-    Aralidae,
     Artume,
-    Aylok,
     Ayyarad,
-    AzureEmpire,
     Bachuan,
     Baghava,
     HoldOfBelkzen,
@@ -49,6 +70,7 @@ enum Nations {
     Eihlona,
     Ekujae,
     Eurythnia,
+    EmpireOfKelesh,
     Felgunn,
     FiveKingsMountains,
     Galt,
@@ -204,19 +226,294 @@ enum Nations {
     Zo,
 }
 
-enum MajorAreas {
-    // todo review
-    SagaLands,
-    EyeOfDread,
-    ShiningKingdoms,
-    OldCheliax,
+enum Cities {
     Absalom,
-    GoldenRoad,
-    HighSeas,
-    ImpossibleLands,
+    Nagisa,
+    AlkenstarCity,
+    Almas,
+    Artume,
+    Peijita,
+    Urgir,
+    Bloodcove,
 }
 
-enum Oceans {
+enum NationType {
+    Normal,
+    NonExistent,
+    Vassal,
+    Unlanded,
+}
+
+struct Nation {
+    nation: Nations,
+    nation_type: NationType,
+    continent: Continents,
+    major_area: Option<MajorAreas>,
+    capital: Option<Cities>,
+    ruler: Option<Individuals>,
+    government: Option<Government>,
+    demonym: Option<&'static str>,
+    adjective: Option<Vec<&'static str>>,
+    language: Option<Vec<Languages>>,
+    religion: Option<Vec<Deities>>,
+}
+
+impl Nation {
+    pub fn absalom() -> Self {
+        Self {
+            nation: Nations::Absalom,
+            nation_type: NationType::Normal,
+            continent: Continents::Avistan,
+            major_area: Some(MajorAreas::Absalom),
+            capital: Some(Cities::Absalom),
+            ruler: Some(Individuals::Gyr),
+            government: Some(Government::GrandCouncil),
+            demonym: Some("Absalomians"),
+            adjective: Some(vec!["Absalom"]),
+            language: Some(Languages::all()),
+            religion: Some(vec![
+                Deities::Abadar,
+                Deities::Aroden,
+                Deities::Calistria,
+                Deities::CaydenCailean,
+                Deities::Iomedae,
+                Deities::Irori,
+                Deities::Nethys,
+                Deities::Norgorber,
+                Deities::Sarenrae,
+                Deities::Shelyn,
+            ]),
+        }
+    }
+    pub fn agamazar_raj() -> Self {
+        Self {
+            nation: Nations::AgamazarRaj,
+            nation_type: NationType::Vassal,
+            continent: Continents::TianXia,
+            major_area: None,
+            capital: None,
+            ruler: None,
+            government: Some(Government::Vassal(Nations::ValashRaj)),
+            demonym: None,
+            adjective: None,
+            language: None,
+            religion: None,
+        }
+    }
+    pub fn alban() -> Self {
+        Self {
+            nation: Nations::Alijae,
+            nation_type: NationType::NonExistent,
+            continent: Continents::Avistan,
+            major_area: None,
+            capital: None,
+            ruler: None,
+            government: None,
+            demonym: None,
+            adjective: None,
+            language: None,
+            religion: None,
+        }
+    }
+
+    fn alijae() -> Self {
+        // todo review technically this is an organization
+        Self {
+            nation: Nations::Alijae,
+            nation_type: NationType::Unlanded,
+            continent: Continents::Garund,
+            major_area: None,
+            capital: Some(Cities::Nagisa),
+            ruler: None,
+            government: Some(Government::Tribal),
+            demonym: None,
+            adjective: None,
+            language: None,
+            religion: Some(vec![
+                Deities::Nocticula,
+                Deities::Desna,
+                Deities::Findeladlara,
+                Deities::Irori,
+                Deities::Nethys,
+            ]),
+        }
+    }
+    fn alkenstar() -> Self {
+        Self {
+            nation: Nations::Alkenstar,
+            nation_type: NationType::Normal,
+            continent: Continents::Garund,
+            major_area: Some(MajorAreas::ImpossibleLands),
+            capital: Some(Cities::AlkenstarCity),
+            ruler: Some(Individuals::TerittaRicia),
+            government: Some(Government::ConstitutionalMonarchy),
+            demonym: Some("Alkenstarians"),
+            adjective: Some(vec!["Alkenstar", "Alkenstari"]),
+            language: Some(vec![
+                Languages::Common,
+                Languages::Dwarven,
+                Languages::Kelish,
+                Languages::Osiriani,
+            ]),
+            religion: Some(vec![
+                Deities::Abadar,
+                Deities::Erastil,
+                Deities::Irori,
+                Deities::Torag,
+            ]),
+        }
+    }
+    fn almhult() -> Self {
+        Self {
+            nation: Nations::Almhult,
+            nation_type: NationType::Unlanded,
+            continent: Continents::CrownOfTheWorld,
+            major_area: None,
+            capital: None,
+            ruler: None,
+            government: None,
+            demonym: None,
+            adjective: None,
+            language: Some(vec![Languages::Skald]),
+            religion: None,
+        }
+    }
+    fn andoran() -> Self {
+        Self {
+            nation: Nations::Andoran,
+            nation_type: NationType::Normal,
+            continent: Continents::Avistan,
+            major_area: Some(MajorAreas::ShiningKingdoms),
+            capital: Some(Cities::Almas),
+            ruler: Some(Individuals::AndiraMarusek),
+            government: Some(Government::ParliamentaryDemocracy),
+            demonym: Some("Andorens"),
+            adjective: Some(vec!["Andoren"]),
+            language: Some(vec![Languages::Common]),
+            religion: Some(vec![
+                Deities::Abadar,
+                Deities::CaydenCailean,
+                Deities::Erastil,
+                Deities::Iomedae,
+                Deities::Shelyn,
+            ]),
+        }
+    }
+    fn artume() -> Self {
+        Self {
+            nation: Nations::Artume,
+            nation_type: NationType::Unlanded,
+            continent: Continents::Avistan,
+            major_area: Some(MajorAreas::BrokenLands),
+            capital: Some(Cities::Artume),
+            ruler: Some(Individuals::EdrydArtume),
+            government: Some(Government::Monarchy),
+            demonym: None,
+            adjective: None,
+            language: None,
+            religion: None,
+        }
+    }
+    fn ayyarad() -> Self {
+        Self {
+            nation: Nations::Ayyarad,
+            nation_type: NationType::Vassal,
+            continent: Continents::Casmaron,
+            major_area: None,
+            capital: None,
+            ruler: None,
+            government: Some(Government::Vassal(Nations::EmpireOfKelesh)),
+            demonym: None,
+            adjective: None,
+            language: None,
+            religion: None,
+        }
+    }
+    fn bachuan() -> Self {
+        Self {
+            nation: Nations::Bachuan,
+            nation_type: NationType::Normal,
+            continent: Continents::TianXia,
+            major_area: None,
+            capital: Some(Cities::Peijita),
+            ruler: Some(Individuals::PeiYaeMen),
+            government: Some(Government::AutocraticCouncil),
+            demonym: Some("Bachuan"),
+            adjective: Some(vec!["Bachuan"]),
+            language: Some(vec![Languages::Tien]),
+            religion: Some(vec![
+                Deities::Atheism,
+                Deities::Kofusachi,
+                Deities::HeiFeng,
+                Deities::QiZhong,
+            ]),
+        }
+    }
+    fn baghava() -> Self {
+        Self {
+            nation: Nations::Baghava,
+            nation_type: NationType::Unlanded,
+            continent: Continents::Casmaron,
+            major_area: None,
+            capital: None,
+            ruler: None,
+            government: Some(Government::Mahajanapada),
+            demonym: None,
+            adjective: None,
+            language: None,
+            religion: Some(vec![Deities::Gaelata])
+        }
+    }
+    fn hold_of_belkzen() -> Self {
+        Self {
+            nation: Nations::HoldOfBelkzen,
+            nation_type: NationType::Normal,
+            continent: Continents::Avistan,
+            major_area: Some(MajorAreas::EyeOfDread),
+            capital: Some(Cities::Urgir),
+            ruler: None,
+            government: Some(Government::Tribal),
+            demonym: None,
+            adjective: Some(vec!["Belkzen"]),
+            language: Some(vec![Languages::Orcish]),
+            religion: Some(vec![
+                Deities::Lamashtu,
+                Deities::Rovagug,
+                Deities::ZonKuthon,
+            ]),
+        }
+    }
+    fn bloodcove() -> Self {
+        Self {
+            nation: Nations::Bloodcove,
+            nation_type: NationType::Normal,
+            continent: Continents::Garund,
+            major_area: None,
+            capital: Some(Cities::Bloodcove),
+            ruler: Some(Individuals::HarthwikBarzoni),
+            government: Some(Government::SecretSyndicate),
+            demonym: None,
+            adjective: None,
+            language: Some(vec![
+                Languages::Common,
+                Languages::Elven,
+                Languages::Dwarven,
+                Languages::Gnomish,
+                Languages::Goblin,
+                Languages::Mwangi,
+            ]),
+            religion: Some(vec![
+                Deities::Abadar,
+                Deities::Besmara,
+                Deities::Erastil,
+                Deities::Gozreh,
+                Deities::HeiFeng,
+                Deities::Norgorber,
+            ]),
+        }
+    }
+}
+    enum Oceans {
     Arcadian,
     Obari,
     Okaiyo,

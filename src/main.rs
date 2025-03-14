@@ -8,6 +8,7 @@ mod animals;
 
 use crate::ancestry::{Ancestries, Ancestry};
 use crate::deities::Deities;
+use crate::location::{Nations};
 use clap::Parser;
 use std::collections::HashMap;
 use std::io;
@@ -211,6 +212,28 @@ enum People {
     MartialArtists,
     Scholars,
 }
+
+enum Government {
+    GrandCouncil,
+    Vassal(Nations),
+    Tribal,
+    ConstitutionalMonarchy,
+    ParliamentaryDemocracy,
+    Monarchy,
+    AutocraticCouncil,
+    Mahajanapada,
+    SecretSyndicate,
+}
+enum Individuals {
+    Gyr,
+    TerittaRicia,
+    AndiraMarusek,
+    EdrydArtume,
+    PeiYaeMen,
+    HarthwikBarzoni,
+}
+
+
 
 
 

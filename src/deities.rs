@@ -247,6 +247,8 @@ pub enum Deities {
     Sangpotshi,
     ShoantiAnimism,
     WhisperingWay,
+    Aroden,
+    Gaelata,
 }
 
 enum DeityCategories {
