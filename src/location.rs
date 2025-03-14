@@ -235,6 +235,10 @@ enum Cities {
     Peijita,
     Urgir,
     Bloodcove,
+    NewSteven,
+    Egorian,
+    Jyito,
+    Novoboro,
 }
 
 enum NationType {
@@ -512,8 +516,126 @@ impl Nation {
             ]),
         }
     }
+    fn brevoy() -> Self {
+        Self {
+            nation: Nations::Brevoy,
+            nation_type: NationType::Normal,
+            continent: Continents::Avistan,
+            major_area: Some(MajorAreas::BrokenLands),
+            capital: Some(Cities::NewSteven),
+            ruler: Some(Individuals::NoleskiSurtova),
+            government: Some(Government::HereditaryMonarchy),
+            demonym: None,
+            adjective: Some(vec!["Brevic"]),
+            language: Some(vec![
+                Languages::Common,
+                Languages::Draconic,
+                Languages::Hallit,
+                Languages::Skald,
+                Languages::Varisian,
+            ]),
+            religion: Some(vec![
+                Deities::Abadar,
+                Deities::Gorum,
+                Deities::Pharasma,
+            ]),
+        }
+    }
+    fn briarbough() -> Self {
+        Self {
+            nation: Nations::Briarbough,
+            nation_type: NationType::Normal,
+            continent: Continents::Arcadia,
+            major_area: None,
+            capital: None,
+            ruler: None,
+            government: Some(Government::RowenRifle),
+            demonym: None,
+            adjective: None,
+            language: None,
+            religion: None,
+        }
+    }
+    fn chauxen() -> Self {
+        Self {
+            nation: Nations::Chauxen,
+            nation_type: NationType::Unlanded,
+            continent: Continents::Garund,
+            major_area: None,
+            capital: None,
+            ruler: None,
+            government: Some(Government::Colony(Nations::Vudra)),
+            demonym: None,
+            adjective: None,
+            language: None,
+            religion: None,
+
+        }
+    }
+    fn cheliax() -> Self {
+        Self {
+            nation: Nations::Cheliax,
+            nation_type: NationType::Normal,
+            continent: Continents::Avistan,
+            major_area: Some(MajorAreas::OldCheliax),
+            capital: Some(Cities::Egorian),
+            ruler: Some(Individuals::AbrogailThrune),
+            government: Some(Government::Monarchy),
+            demonym: Some("Chekaxians"),
+            adjective: Some(vec!["Chelaxian", "Chelish"]),
+            language: Some(vec![
+                Languages::Diabolic,
+                Languages::Common,
+            ]),
+            religion: Some(vec![
+                Deities::Erastil,
+                Deities::Iomedae,
+                Deities::ZonKuthon,
+            ]),
+        }
+    }
+    fn chu_ye() -> Self {
+        Self {
+            nation: Nations::ChuYe,
+            nation_type: NationType::Normal,
+            continent: Continents::TianXia,
+            major_area: None,
+            capital: Some(Cities::Jyito),
+            ruler: Some(Individuals::Tsuneni),
+            government: Some(Government::OniShogunate),
+            demonym: None,
+            adjective: None,
+            language: Some(vec![
+                Languages::Jotun,
+                Languages::Minkaian,
+                Languages::Samsaran,
+                Languages::Senzar,
+                Languages::Tien,
+            ]),
+            religion: Some(vec![
+                Deities::Fumeiyoshi,
+                Deities::GeneralSusumu,
+            ]),
+        }
+    }
+    fn cordelon() -> Self {
+        Self {
+            nation: Nations::Cordelon,
+            nation_type: NationType::Normal,
+            continent: Continents::Avistan,
+            major_area: Some(MajorAreas::BrokenLands),
+            capital: Some(Cities::Novoboro),
+            ruler: None,
+            government: None,
+            demonym: None,
+            adjective: None,
+            language: None,
+            religion: None,
+        }
+    }
+
 }
-    enum Oceans {
+enum Oceans {
     Arcadian,
     Obari,
     Okaiyo,

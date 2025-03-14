@@ -223,6 +223,11 @@ enum Government {
     AutocraticCouncil,
     Mahajanapada,
     SecretSyndicate,
+    HereditaryMonarchy,
+    RowenRifle,
+    Colony(Nations),
+    OniShogunate,
+
 }
 enum Individuals {
     Gyr,
@@ -231,6 +236,9 @@ enum Individuals {
     EdrydArtume,
     PeiYaeMen,
     HarthwikBarzoni,
+    NoleskiSurtova,
+    AbrogailThrune,
+    Tsuneni,
 }
 
 
