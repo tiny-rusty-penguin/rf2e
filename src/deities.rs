@@ -251,6 +251,7 @@ pub enum Deities {
     Gaelata,
     Lalaci,
     Lixiriltha,
+    PeacockSpirit,
 }
 
 enum DeityCategories {

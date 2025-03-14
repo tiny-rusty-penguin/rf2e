@@ -1,14 +1,14 @@
 mod ancestry;
+mod animals;
 mod backgrounds;
 mod deities;
 mod language;
 mod location;
 mod spells;
-mod animals;
 
 use crate::ancestry::{Ancestries, Ancestry};
 use crate::deities::Deities;
-use crate::location::{Nations};
+use crate::location::nations::Nations;
 use clap::Parser;
 use std::collections::HashMap;
 use std::io;
@@ -240,7 +240,6 @@ enum Government {
     Oligarchy,
     ContractualDictatorship,
     Matriarchy,
-
 }
 enum Individuals {
     Gyr,
@@ -266,14 +265,54 @@ enum Individuals {
     HoloEnyana,
     HyeonGeonJi,
     FerielNellmyr,
+    Alaznist,
+    Xanderghul,
+    Zutha,
+    Krune,
+    JaeAbber,
+    PaldreshaAtterbay,
+    JulpinCrags,
+    AvidArnsen,
+    PerivarAltrusi,
+    LardusLongsaddle,
+    RegisCoombs,
+    ElithuVargan,
+    EstessaVandy,
+    HanleyCasterog,
+
 }
 
+pub enum PlanarNations {
+    Aralidae,
+    Aylok,
+    AzureEmpire,
+    DiguoDashu,
+    Felgunn,
+    HangingMarches,
+    Hautansia,
+    JaathoomEmpire,
+    Jotungard,
+    Kamora,
+    Kashak,
+    Kelizandrika,
+    Ning,
+    PeerlessEmpire,
+    Sovyrian,
+    Stonetide,
+    HiuNuo,
+    Voiporl,
+    Xibalba,
+    Zo,
+}
 
-
-
+pub enum NationType {
+    Normal,
+    NonExistent,
+    Vassal,
+    Unlanded,
+}
 
 // todo ancestry
-
 
 enum Color {
     Gold,
