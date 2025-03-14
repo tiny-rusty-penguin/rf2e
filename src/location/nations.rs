@@ -15,6 +15,7 @@ pub enum Nations {
     Brevoy,
     Cheliax,
     Cordelon,
+    Corvenn,
     Cyrusian,
     Daggermark,
     Doggadth,
@@ -402,6 +403,21 @@ impl Nation {
             religion: None,
         }
     }
+    fn corvenn() -> Self {
+        Self {
+            nation: Nations::Corvenn,
+            nation_type: NationType::NonExistent,
+            continent: Continents::Avistan,
+            major_area: Some(MajorAreas::BrokenLands),
+            capital: None,
+            ruler: None,
+            government: None,
+            demonym: None,
+            adjective: None,
+            language: None,
+            religion: None,
+        }
+    }
     fn cyrusian() -> Self {
         Self {
             nation: Nations::Cyrusian,
@@ -454,7 +470,7 @@ impl Nation {
     fn droskars_kingdom() -> Self {
         Self {
             nation: Nations::DroskarsKingdom,
-            nation_type: NationType::Normal,
+            nation_type: NationType::NonExistent,
             continent: Continents::Avistan,
             major_area: Some(MajorAreas::ShiningKingdoms),
             capital: None,
@@ -472,7 +488,7 @@ impl Nation {
             nation_type: NationType::Normal,
             continent: Continents::Avistan,
             major_area: Some(MajorAreas::ShiningKingdoms),
-            capital: None,
+            capital: Some(Settlements::Kerse),
             ruler: Some(Individuals::Kelldor),
             government: Some(Government::MercantileOligarchy),
             demonym: Some("Drumans"),
@@ -527,7 +543,7 @@ impl Nation {
     fn eurythnia() -> Self {
         Self {
             nation: Nations::Eurythnia,
-            nation_type: NationType::Normal,
+            nation_type: NationType::NonExistent,
             continent: Continents::Avistan,
             major_area: Some(MajorAreas::SagaLands),
             capital: Some(Settlements::XinShalast),

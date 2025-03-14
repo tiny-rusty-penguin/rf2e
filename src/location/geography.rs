@@ -1,3 +1,4 @@
+
 pub enum Geography {
     // Avistan
     // Absalom
@@ -114,6 +115,125 @@ pub enum Geography {
     UvallHills,
     ValleyOfFire,
     WinterbreakBay,
+
+    // Cheliax
+    AdivianRiver,
+    AnferitaWood,
+    ArgoIsle,
+    Barrowood,
+    BayOfDeng,
+    BayOfSolva,
+    BogRock,
+    BrastleRiver,
+    CapeDis,
+    CapeErebus,
+    CapeKraken,
+    CliffsOfFury,
+    Deepmar,
+    DevilsPerch,
+    Dhaenfens,
+    DismalNitch,
+    DoraciumRiver,
+    Dunrock,
+    EgobariusPlain,
+    Eismonts,
+    FatHarbor,
+    FieldsOfChelam,
+    GemcrownBay,
+    HalikarnassosHills,
+    HellmouthGulf,
+    HesperethStrait,
+    IseldRiver,
+    JeniRiver,
+    JewelcoastCape,
+    KatharevousaRiver,
+    KeelwrackHarbor,
+    KeelwrackIsland,
+    Kharijite,
+    LostmastCape,
+    MaiestasRiver,
+    MalvesaRiver,
+    MenadorMountains,
+    MistshroudCliff,
+    MountEmihym,
+    MountNyisaid,
+    MountRinia,
+    MountSpire,
+    NalKashel,
+    NisrochBay,
+    NorthPlains,
+    OrneianCoast,
+    PillarsOfAnferita,
+    Pinch,
+    RavounelForest,
+    Rifardona,
+    RikkanFalls,
+    SallowCoast,
+    SednaRiver,
+    Shardstone,
+    SirmiumPlains,
+    LakeSorrow,
+    SouthernUskRiver,
+    Southrun,
+    StavianArches,
+    SteamingSea,
+    Thuryan,
+    TolsenPeak,
+    TomarsulkRiver,
+    TravekRiver,
+    TuranianHills,
+    VyreIsland,
+    VyreRiver,
+    WarlockIsland,
+    Westchannel,
+    WhalersPoint,
+    WhisperRiver,
+    Whisperwood,
+    WinterGrove,
+    WolfsTooth,
+    YolubilisRiver,
+
+    // Daggermark
+    DaggerRiver,
+    Shroudwood,
+
+    // Druma
+    LakeEncarthan,
+    GreatGolodpanRiver,
+    GulfOfAccord,
+    MountSinatuk,
+    PalakarForest,
+    ProfitsFlow,
+
+    // Five Kings Mountains
+    BloodOfTheMountain,
+    EmperorsPeak,
+    GreatGoldpanRiver,
+    LightningsCall,
+    MountArugak,
+    MountCarissa,
+    MountGustus,
+    MountKla,
+    MountLangley,
+    MountMist,
+    MountOnik,
+    MountSoryu,
+    QueenPeak,
+    ShapingBluffs,
+    ToragsBreath,
+    ValeOfShadows,
+
+    // Galt
+    Boarwood,
+    FogPeaks,
+    HorunPlain,
+    SouthernHymbrianForest,
+    KanteleRiver,
+    MountCania,
+    MountRein,
+    NordeinGlacier,
+    QiOamatokPass,
+    StormfloodRiver,
 }
 
 struct GeographyData {
@@ -586,7 +706,7 @@ impl GeographyData {
     fn dirt_sea() -> Self {
         GeographyData {
             geography: Geography::DirtSea,
-            geography_type: GeographyType::Marsh,
+            geography_type: GeographyType::Wetlands,
         }
     }
     fn gap_of_valballus() -> Self {
@@ -771,6 +891,652 @@ impl GeographyData {
             geography_type: GeographyType::Bay,
         }
     }
+
+    // Cheliax
+    fn adivian_river() -> Self {
+        GeographyData {
+            geography: Geography::AdivianRiver,
+            geography_type: GeographyType::River,
+        }
+    }
+    fn anferita_wood() -> Self {
+        GeographyData {
+            geography: Geography::AnferitaWood,
+            geography_type: GeographyType::Forest,
+        }
+    }
+    fn argo_isle() -> Self {
+        GeographyData {
+            geography: Geography::ArgoIsle,
+            geography_type: GeographyType::Island,
+        }
+    }
+    fn barrowood() -> Self {
+        GeographyData {
+            geography: Geography::Barrowood,
+            geography_type: GeographyType::Forest,
+        }
+    }
+    fn bay_of_deng() -> Self {
+        GeographyData {
+            geography: Geography::BayOfDeng,
+            geography_type: GeographyType::Bay,
+        }
+    }
+    fn bay_of_solva() -> Self {
+        GeographyData {
+            geography: Geography::BayOfSolva,
+            geography_type: GeographyType::Bay,
+        }
+    }
+    fn bog_rock() -> Self {
+        GeographyData {
+            geography: Geography::BogRock,
+            geography_type: GeographyType::Island,
+        }
+    }
+    fn brastle_river() -> Self {
+        GeographyData {
+            geography: Geography::BrastleRiver,
+            geography_type: GeographyType::River,
+        }
+    }
+    fn cape_dis() -> Self {
+        GeographyData {
+            geography: Geography::CapeDis,
+            geography_type: GeographyType::Cape,
+        }
+    }
+    fn cape_erebus() -> Self {
+        GeographyData {
+            geography: Geography::CapeErebus,
+            geography_type: GeographyType::Cape,
+        }
+    }
+    fn cape_kraken() -> Self {
+        GeographyData {
+            geography: Geography::CapeKraken,
+            geography_type: GeographyType::Cape,
+        }
+    }
+    fn cliffs_of_fury() -> Self {
+        GeographyData {
+            geography: Geography::CliffsOfFury,
+            geography_type: GeographyType::Cliffs,
+        }
+    }
+    fn deepmar() -> Self {
+        GeographyData {
+            geography: Geography::Deepmar,
+            geography_type: GeographyType::Island,
+        }
+    }
+    fn devils_perch() -> Self {
+        GeographyData {
+            geography: Geography::DevilsPerch,
+            geography_type: GeographyType::MountainRange,
+        }
+    }
+    fn dhaenfens() -> Self {
+        GeographyData {
+            geography: Geography::Dhaenfens,
+            geography_type: GeographyType::Wetlands,
+        }
+    }
+    fn dismal_nitch() -> Self {
+        GeographyData {
+            geography: Geography::DismalNitch,
+            geography_type: GeographyType::Coast,
+        }
+    }
+    fn doracium_river() -> Self {
+        GeographyData {
+            geography: Geography::DoraciumRiver,
+            geography_type: GeographyType::River,
+        }
+    }
+    fn dunrock() -> Self {
+        GeographyData {
+            geography: Geography::Dunrock,
+            geography_type: GeographyType::Island,
+        }
+    }
+    fn egobarius_plain() -> Self {
+        GeographyData {
+            geography: Geography::EgobariusPlain,
+            geography_type: GeographyType::Plains,
+        }
+    }
+    fn eismonts() -> Self {
+        GeographyData {
+            geography: Geography::Eismonts,
+            geography_type: GeographyType::MountainRange,
+        }
+    }
+    fn fat_harbor() -> Self {
+        GeographyData {
+            geography: Geography::FatHarbor,
+            geography_type: GeographyType::Harbor,
+        }
+    }
+    fn fields_of_chelam() -> Self {
+        GeographyData {
+            geography: Geography::FieldsOfChelam,
+            geography_type: GeographyType::Plains,
+        }
+    }
+    fn gemcrown_bay() -> Self {
+        GeographyData {
+            geography: Geography::GemcrownBay,
+            geography_type: GeographyType::Bay,
+        }
+    }
+    fn halikarnassos_hills() -> Self {
+        GeographyData {
+            geography: Geography::HalikarnassosHills,
+            geography_type: GeographyType::Hills,
+        }
+    }
+    fn hellmouth_gulf() -> Self {
+        GeographyData {
+            geography: Geography::HellmouthGulf,
+            geography_type: GeographyType::Bay,
+        }
+    }
+    fn hespereth_strait() -> Self {
+        GeographyData {
+            geography: Geography::HesperethStrait,
+            geography_type: GeographyType::Strait,
+        }
+    }
+    fn iseld_river() -> Self {
+        GeographyData {
+            geography: Geography::IseldRiver,
+            geography_type: GeographyType::River,
+        }
+    }
+    fn jeni_river() -> Self {
+        GeographyData {
+            geography: Geography::JeniRiver,
+            geography_type: GeographyType::River,
+        }
+    }
+    fn jewelcoast_cape() -> Self {
+        GeographyData {
+            geography: Geography::JewelcoastCape,
+            geography_type: GeographyType::Cape,
+        }
+    }
+    fn katharevousa_river() -> Self {
+        GeographyData {
+            geography: Geography::KatharevousaRiver,
+            geography_type: GeographyType::River,
+        }
+    }
+    fn keelwrack_harbor() -> Self {
+        GeographyData {
+            geography: Geography::KeelwrackHarbor,
+            geography_type: GeographyType::Harbor,
+        }
+    }
+    fn keelwrack_island() -> Self {
+        GeographyData {
+            geography: Geography::KeelwrackIsland,
+            geography_type: GeographyType::Island,
+        }
+    }
+    fn kharijite() -> Self {
+        GeographyData {
+            geography: Geography::Kharijite,
+            geography_type: GeographyType::Region,
+        }
+    }
+    fn lostmast_cape() -> Self {
+        GeographyData {
+            geography: Geography::LostmastCape,
+            geography_type: GeographyType::Cape,
+        }
+    }
+    fn maiestas_river() -> Self {
+        GeographyData {
+            geography: Geography::MaiestasRiver,
+            geography_type: GeographyType::River,
+        }
+    }
+    fn malvesa_river() -> Self {
+        GeographyData {
+            geography: Geography::MalvesaRiver,
+            geography_type: GeographyType::River,
+        }
+    }
+    fn menador_mountains() -> Self {
+        GeographyData {
+            geography: Geography::MenadorMountains,
+            geography_type: GeographyType::MountainRange,
+        }
+    }
+    fn mistshroud_cliff() -> Self {
+        GeographyData {
+            geography: Geography::MistshroudCliff,
+            geography_type: GeographyType::Cliffs,
+        }
+    }
+    fn mount_emihym() -> Self {
+        GeographyData {
+            geography: Geography::MountEmihym,
+            geography_type: GeographyType::Mountain,
+        }
+    }
+    fn mount_nyisaid() -> Self {
+        GeographyData {
+            geography: Geography::MountNyisaid,
+            geography_type: GeographyType::Mountain,
+        }
+    }
+    fn mount_rinia() -> Self {
+        GeographyData {
+            geography: Geography::MountRinia,
+            geography_type: GeographyType::Mountain,
+        }
+    }
+    fn mount_spire() -> Self {
+        GeographyData {
+            geography: Geography::MountSpire,
+            geography_type: GeographyType::Mountain,
+        }
+    }
+    fn nal_kashel() -> Self {
+        GeographyData {
+            geography: Geography::NalKashel,
+            geography_type: GeographyType::Island,
+        }
+    }
+    fn nisroch_bay() -> Self {
+        GeographyData {
+            geography: Geography::NisrochBay,
+            geography_type: GeographyType::Bay,
+        }
+    }
+    fn north_plains() -> Self {
+        GeographyData {
+            geography: Geography::NorthPlains,
+            geography_type: GeographyType::Plains,
+        }
+    }
+    fn orneian_coast() -> Self {
+        GeographyData {
+            geography: Geography::OrneianCoast,
+            geography_type: GeographyType::Coast,
+        }
+    }
+    fn pillars_of_anferita() -> Self {
+        GeographyData {
+            geography: Geography::PillarsOfAnferita,
+            geography_type: GeographyType::RockFormation,
+        }
+    }
+    fn pinch() -> Self {
+        GeographyData {
+            geography: Geography::Pinch,
+            geography_type: GeographyType::Strait,
+        }
+    }
+    fn ravounel_forest() -> Self {
+        GeographyData {
+            geography: Geography::RavounelForest,
+            geography_type: GeographyType::Forest,
+        }
+    }
+    fn rifardona() -> Self {
+        GeographyData {
+            geography: Geography::Rifardona,
+            geography_type: GeographyType::Sandbar,
+        }
+    }
+    fn sallow_coast() -> Self {
+        GeographyData {
+            geography: Geography::SallowCoast,
+            geography_type: GeographyType::Coast,
+        }
+    }
+    fn sedna_river() -> Self {
+        GeographyData {
+            geography: Geography::SednaRiver,
+            geography_type: GeographyType::River,
+        }
+    }
+    fn shardstone() -> Self {
+        GeographyData {
+            geography: Geography::Shardstone,
+            geography_type: GeographyType::Island,
+        }
+    }
+    fn sirmium_plains() -> Self {
+        GeographyData {
+            geography: Geography::SirmiumPlains,
+            geography_type: GeographyType::Plains,
+        }
+    }
+    fn lake_sorrow() -> Self {
+        GeographyData {
+            geography: Geography::LakeSorrow,
+            geography_type: GeographyType::Lake,
+        }
+    }
+    fn southern_usk_river() -> Self {
+        GeographyData {
+            geography: Geography::SouthernUskRiver,
+            geography_type: GeographyType::River,
+        }
+    }
+    fn southrun() -> Self {
+        GeographyData {
+            geography: Geography::Southrun,
+            geography_type: GeographyType::River,
+        }
+    }
+    fn stavian_arches() -> Self {
+        GeographyData {
+            geography: Geography::StavianArches,
+            geography_type: GeographyType::Bridge,
+        }
+    }
+    fn steaming_sea() -> Self {
+        GeographyData {
+            geography: Geography::SteamingSea,
+            geography_type: GeographyType::Sea,
+        }
+    }
+    fn thuryan() -> Self {
+        GeographyData {
+            geography: Geography::Thuryan,
+            geography_type: GeographyType::Island,
+        }
+    }
+    fn tolsen_peak() -> Self {
+        GeographyData {
+            geography: Geography::TolsenPeak,
+            geography_type: GeographyType::Mountain,
+        }
+    }
+    fn tomarsulk_river() -> Self {
+        GeographyData {
+            geography: Geography::TomarsulkRiver,
+            geography_type: GeographyType::River,
+        }
+    }
+    fn travek_river() -> Self {
+        GeographyData {
+            geography: Geography::TravekRiver,
+            geography_type: GeographyType::River,
+        }
+    }
+    fn turanian_hills() -> Self {
+        GeographyData {
+            geography: Geography::TuranianHills,
+            geography_type: GeographyType::Hills,
+        }
+    }
+    fn vyre_island() -> Self {
+        GeographyData {
+            geography: Geography::VyreIsland,
+            geography_type: GeographyType::Island,
+        }
+    }
+    fn vyre_river() -> Self {
+        GeographyData {
+            geography: Geography::VyreRiver,
+            geography_type: GeographyType::River,
+        }
+    }
+    fn warlock_island() -> Self {
+        GeographyData {
+            geography: Geography::WarlockIsland,
+            geography_type: GeographyType::Island,
+        }
+    }
+    fn westchannel() -> Self {
+        GeographyData {
+            geography: Geography::Westchannel,
+            geography_type: GeographyType::Waterway,
+        }
+    }
+    fn whalers_point() -> Self {
+        GeographyData {
+            geography: Geography::WhalersPoint,
+            geography_type: GeographyType::Spit,
+        }
+    }
+    fn whisper_river() -> Self {
+        GeographyData {
+            geography: Geography::WhisperRiver,
+            geography_type: GeographyType::River,
+        }
+    }
+    fn whisperwood() -> Self {
+        GeographyData {
+            geography: Geography::Whisperwood,
+            geography_type: GeographyType::Forest,
+        }
+    }
+    fn winter_grove() -> Self {
+        GeographyData {
+            geography: Geography::WinterGrove,
+            geography_type: GeographyType::Grove,
+        }
+    }
+    fn wolfs_tooth() -> Self {
+        GeographyData {
+            geography: Geography::WolfsTooth,
+            geography_type: GeographyType::Island,
+        }
+    }
+
+    // Daggermark
+    fn dagger_river() -> Self {
+        GeographyData {
+            geography: Geography::DaggerRiver,
+            geography_type: GeographyType::River,
+        }
+    }
+    fn shroudwood() -> Self {
+        GeographyData {
+            geography: Geography::Shroudwood,
+            geography_type: GeographyType::Forest,
+        }
+    }
+
+    // Druma
+    fn lake_encarthan() -> Self {
+        GeographyData {
+            geography: Geography::LakeEncarthan,
+            geography_type: GeographyType::Lake,
+        }
+    }
+    fn great_golodpan_river() -> Self {
+        GeographyData {
+            geography: Geography::GreatGolodpanRiver,
+            geography_type: GeographyType::River,
+        }
+    }
+    fn gulf_of_accord() -> Self {
+        GeographyData {
+            geography: Geography::GulfOfAccord,
+            geography_type: GeographyType::Bay,
+        }
+    }
+    fn mount_sinatuk() -> Self {
+        GeographyData {
+            geography: Geography::MountSinatuk,
+            geography_type: GeographyType::Mountain,
+        }
+    }
+    fn palakar_forest() -> Self {
+        GeographyData {
+            geography: Geography::PalakarForest,
+            geography_type: GeographyType::Forest,
+        }
+    }
+    fn profits_flow() -> Self {
+        GeographyData {
+            geography: Geography::ProfitsFlow,
+            geography_type: GeographyType::River,
+        }
+    }
+
+    // Five Kings Mountains
+    fn blood_of_the_mountain() -> Self {
+        GeographyData {
+            geography: Geography::BloodOfTheMountain,
+            geography_type: GeographyType::LavaLake,
+        }
+    }
+    fn emperors_peak() -> Self {
+        GeographyData {
+            geography: Geography::EmperorsPeak,
+            geography_type: GeographyType::Mountain,
+        }
+    }
+    fn great_goldpan_river() -> Self {
+        GeographyData {
+            geography: Geography::GreatGoldpanRiver,
+            geography_type: GeographyType::River,
+        }
+    }
+    fn lightnings_call() -> Self {
+        GeographyData {
+            geography: Geography::LightningsCall,
+            geography_type: GeographyType::Mountain,
+        }
+    }
+    fn mount_arugak() -> Self {
+        GeographyData {
+            geography: Geography::MountArugak,
+            geography_type: GeographyType::Mountain,
+        }
+    }
+    fn mount_carissa() -> Self {
+        GeographyData {
+            geography: Geography::MountCarissa,
+            geography_type: GeographyType::Mountain,
+        }
+    }
+    fn mount_gustus() -> Self {
+        GeographyData {
+            geography: Geography::MountGustus,
+            geography_type: GeographyType::Mountain,
+        }
+    }
+    fn mount_kla() -> Self {
+        GeographyData {
+            geography: Geography::MountKla,
+            geography_type: GeographyType::Mountain,
+        }
+    }
+    fn mount_langley() -> Self {
+        GeographyData {
+            geography: Geography::MountLangley,
+            geography_type: GeographyType::Mountain,
+        }
+    }
+    fn mount_mist() -> Self {
+        GeographyData {
+            geography: Geography::MountMist,
+            geography_type: GeographyType::Mountain,
+        }
+    }
+    fn mount_onik() -> Self {
+        GeographyData {
+            geography: Geography::MountOnik,
+            geography_type: GeographyType::Mountain,
+        }
+    }
+    fn mount_soryu() -> Self {
+        GeographyData {
+            geography: Geography::MountSoryu,
+            geography_type: GeographyType::Mountain,
+        }
+    }
+    fn queen_peak() -> Self {
+        GeographyData {
+            geography: Geography::QueenPeak,
+            geography_type: GeographyType::Mountain,
+        }
+    }
+    fn shaping_bluffs() -> Self {
+        GeographyData {
+            geography: Geography::ShapingBluffs,
+            geography_type: GeographyType::RockFormation,
+        }
+    }
+    fn torags_breath() -> Self {
+        GeographyData {
+            geography: Geography::ToragsBreath,
+            geography_type: GeographyType::AirRiver,
+        }
+    }
+    fn vale_of_shadows() -> Self {
+        GeographyData {
+            geography: Geography::ValeOfShadows,
+            geography_type: GeographyType::Valley,
+        }
+    }
+
+    // Galt
+    fn boarwood() -> Self {
+        GeographyData {
+            geography: Geography::Boarwood,
+            geography_type: GeographyType::Forest,
+        }
+    }
+    fn fog_peaks() -> Self {
+        GeographyData {
+            geography: Geography::FogPeaks,
+            geography_type: GeographyType::MountainRange,
+        }
+    }
+    fn horun_plain() -> Self {
+        GeographyData {
+            geography: Geography::HorunPlain,
+            geography_type: GeographyType::Plains,
+        }
+    }
+    fn southern_hymbrian_forest() -> Self {
+        GeographyData {
+            geography: Geography::SouthernHymbrianForest,
+            geography_type: GeographyType::Forest,
+        }
+    }
+    fn kantele_river() -> Self {
+        GeographyData {
+            geography: Geography::KanteleRiver,
+            geography_type: GeographyType::River,
+        }
+    }
+    fn mount_cania() -> Self {
+        GeographyData {
+            geography: Geography::MountCania,
+            geography_type: GeographyType::Mountain,
+        }
+    }
+    fn nordein_glacier() -> Self {
+        GeographyData {
+            geography: Geography::NordeinGlacier,
+            geography_type: GeographyType::Glacier,
+        }
+    }
+    fn qi_oamatok_pass() -> Self {
+        GeographyData {
+            geography: Geography::QiOamatokPass,
+            geography_type: GeographyType::Pass,
+        }
+    }
+    fn stormflood_river() -> Self {
+        GeographyData {
+            geography: Geography::StormfloodRiver,
+            geography_type: GeographyType::River,
+        }
+    }
 }
 
 enum GeographyType {
@@ -802,5 +1568,19 @@ enum GeographyType {
     Wastes,
     Marsh,
     Valley,
+    Cliffs,
+    Wetlands,
+    Coast,
+    Strait,
+    RockFormation,
+    Sandbar,
+    Bridge,
+    Sea,
+    Waterway,
+    Spit,
+    Grove,
+    LavaLake,
+    AirRiver,
+    Glacier,
 }
 
