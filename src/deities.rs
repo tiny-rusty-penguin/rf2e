@@ -249,6 +249,8 @@ pub enum Deities {
     WhisperingWay,
     Aroden,
     Gaelata,
+    Lalaci,
+    Lixiriltha,
 }
 
 enum DeityCategories {

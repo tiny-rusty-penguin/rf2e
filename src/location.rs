@@ -1,6 +1,6 @@
 use crate::deities::Deities;
-use crate::{Government, Individuals};
 use crate::language::Languages;
+use crate::{Government, Individuals};
 
 enum Continents {
     Avistan,
@@ -13,7 +13,6 @@ enum Continents {
     Darklands,
     Sarusan,
 }
-
 
 enum MajorAreas {
     // todo review
@@ -32,6 +31,11 @@ pub enum PlanarNations {
     Aralidae,
     Aylok,
     AzureEmpire,
+    DiguoDashu,
+    Egypt,
+    Felgunn,
+    HangingMarches,
+    Hautansia,
 }
 
 pub enum Nations {
@@ -60,18 +64,15 @@ pub enum Nations {
     Dehrukani,
     Dharget,
     Dhuraxilis,
-    DiguoDashu,
     Droon,
     DroskarsKingdom,
     Druma,
     EchoWood,
     Edasseril,
-    Egypt,
     Eihlona,
     Ekujae,
     Eurythnia,
     EmpireOfKelesh,
-    Felgunn,
     FiveKingsMountains,
     Galt,
     Geb,
@@ -79,9 +80,7 @@ pub enum Nations {
     Gralton,
     Gravelands,
     Halana,
-    HangingMarches,
     Hasanaliat,
-    Hautansia,
     Hermea,
     Holomog,
     Hwanggot,
@@ -194,7 +193,7 @@ pub enum Nations {
     TarTaargadth,
     Tazuni,
     TekritaninLeague,
-    Thassilon,
+    ThassilonHiuNuo,
     Thuvia,
     Tianjing,
     Tirakawhan,
@@ -239,6 +238,25 @@ enum Cities {
     Egorian,
     Jyito,
     Novoboro,
+    Daggermark,
+    Radripal,
+    Degasi,
+    Dhuraxilis,
+    HiuNuo,
+    Thornkeep,
+    XinEdasseril,
+    XinEurythnia,
+    XinShalast,
+    Isfahel,
+    Highhelm,
+    Isarn,
+    Mechitar,
+    Tzaarban,
+    Gralton,
+    Rookery,
+    Promise,
+    Haseong,
+    Mimere,
 }
 
 enum NationType {
@@ -465,7 +483,7 @@ impl Nation {
             demonym: None,
             adjective: None,
             language: None,
-            religion: Some(vec![Deities::Gaelata])
+            religion: Some(vec![Deities::Gaelata]),
         }
     }
     fn hold_of_belkzen() -> Self {
@@ -534,11 +552,7 @@ impl Nation {
                 Languages::Skald,
                 Languages::Varisian,
             ]),
-            religion: Some(vec![
-                Deities::Abadar,
-                Deities::Gorum,
-                Deities::Pharasma,
-            ]),
+            religion: Some(vec![Deities::Abadar, Deities::Gorum, Deities::Pharasma]),
         }
     }
     fn briarbough() -> Self {
@@ -569,7 +583,6 @@ impl Nation {
             adjective: None,
             language: None,
             religion: None,
-
         }
     }
     fn cheliax() -> Self {
@@ -583,15 +596,8 @@ impl Nation {
             government: Some(Government::Monarchy),
             demonym: Some("Chekaxians"),
             adjective: Some(vec!["Chelaxian", "Chelish"]),
-            language: Some(vec![
-                Languages::Diabolic,
-                Languages::Common,
-            ]),
-            religion: Some(vec![
-                Deities::Erastil,
-                Deities::Iomedae,
-                Deities::ZonKuthon,
-            ]),
+            language: Some(vec![Languages::Diabolic, Languages::Common]),
+            religion: Some(vec![Deities::Erastil, Deities::Iomedae, Deities::ZonKuthon]),
         }
     }
     fn chu_ye() -> Self {
@@ -612,10 +618,7 @@ impl Nation {
                 Languages::Senzar,
                 Languages::Tien,
             ]),
-            religion: Some(vec![
-                Deities::Fumeiyoshi,
-                Deities::GeneralSusumu,
-            ]),
+            religion: Some(vec![Deities::Fumeiyoshi, Deities::GeneralSusumu]),
         }
     }
     fn cordelon() -> Self {
@@ -633,9 +636,468 @@ impl Nation {
             religion: None,
         }
     }
-
+    fn daggermark() -> Self {
+        Self {
+            nation: Nations::Daggermark,
+            nation_type: NationType::Normal,
+            continent: Continents::Avistan,
+            major_area: Some(MajorAreas::BrokenLands),
+            capital: Some(Cities::Daggermark),
+            ruler: Some(Individuals::MartroLivondar),
+            government: Some(Government::Anarchy),
+            demonym: None,
+            adjective: None,
+            language: Some(vec![
+                Languages::Common,
+                Languages::Hallit,
+                Languages::Kelish,
+            ]),
+            religion: Some(vec![Deities::CaydenCailean, Deities::Norgorber]),
+        }
+    }
+    fn danamsa() -> Self {
+        Self {
+            nation: Nations::Danamsa,
+            nation_type: NationType::Unlanded,
+            continent: Continents::Casmaron,
+            major_area: None,
+            capital: Some(Cities::Radripal),
+            ruler: None,
+            government: Some(Government::Mahajanapada),
+            demonym: None,
+            adjective: None,
+            language: None,
+            religion: None,
+        }
+    }
+    fn degasi() -> Self {
+        Self {
+            nation: Nations::Degasi,
+            nation_type: NationType::Normal,
+            continent: Continents::Arcadia,
+            major_area: None,
+            capital: Some(Cities::Degasi),
+            ruler: None,
+            government: None,
+            demonym: None,
+            adjective: Some(vec!["Degasi"]),
+            language: None,
+            religion: None,
+        }
+    }
+    fn dehrukani() -> Self {
+        Self {
+            nation: Nations::Dehrukani,
+            nation_type: NationType::Normal,
+            continent: Continents::Garund,
+            major_area: None,
+            capital: None,
+            ruler: None,
+            government: None,
+            demonym: None,
+            adjective: None,
+            language: None,
+            religion: Some(vec![Deities::Ashava, Deities::Cernunnos, Deities::Lalaci]),
+        }
+    }
+    fn dharget() -> Self {
+        Self {
+            nation: Nations::Dharget,
+            nation_type: NationType::Unlanded,
+            continent: Continents::Casmaron,
+            major_area: None,
+            capital: None,
+            ruler: None,
+            government: Some(Government::Mahajanapada),
+            demonym: None,
+            adjective: None,
+            language: None,
+            religion: None,
+        }
+    }
+    fn dhuraxilis() -> Self {
+        Self {
+            nation: Nations::Dhuraxilis,
+            nation_type: NationType::Normal,
+            continent: Continents::Casmaron,
+            major_area: None,
+            capital: Some(Cities::Dhuraxilis),
+            ruler: None,
+            government: None,
+            demonym: None,
+            adjective: None,
+            language: None,
+            religion: None,
+        }
+    }
+    fn droon() -> Self {
+        Self {
+            nation: Nations::Droon,
+            nation_type: NationType::Unlanded,
+            continent: Continents::Garund,
+            major_area: None,
+            capital: None,
+            ruler: None,
+            government: None,
+            demonym: None,
+            adjective: None,
+            language: None,
+            religion: Some(vec![Deities::GrandmotherSpider, Deities::Lixiriltha]),
+        }
+    }
+    fn droskars_kingdom() -> Self {
+        Self {
+            nation: Nations::DroskarsKingdom,
+            nation_type: NationType::Normal,
+            continent: Continents::Avistan,
+            major_area: Some(MajorAreas::ShiningKingdoms),
+            capital: None,
+            ruler: Some(Individuals::OrdrikTalhirk),
+            government: Some(Government::Theocracy),
+            demonym: None,
+            adjective: None,
+            language: Some(vec![Languages::Dwarven]),
+            religion: Some(vec![Deities::Droskar]),
+        }
+    }
+    fn druma() -> Self {
+        Self {
+            nation: Nations::Druma,
+            nation_type: NationType::Normal,
+            continent: Continents::Avistan,
+            major_area: Some(MajorAreas::ShiningKingdoms),
+            capital: None,
+            ruler: Some(Individuals::Kelldor),
+            government: Some(Government::MercantileOligarchy),
+            demonym: Some("Drumans"),
+            adjective: Some(vec!["Drumish", "Druman"]),
+            language: Some(vec![Languages::Common, Languages::Dwarven]),
+            religion: Some(vec![
+                Deities::Abadar,
+                Deities::Torag,
+                Deities::PropheciesOfKalistrade,
+            ]),
+        }
+    }
+    fn echo_wood() -> Self {
+        Self {
+            nation: Nations::EchoWood,
+            nation_type: NationType::Normal,
+            continent: Continents::Avistan,
+            major_area: Some(MajorAreas::BrokenLands),
+            capital: Some(Cities::Thornkeep),
+            ruler: Some(Individuals::TervinBlackshield),
+            government: Some(Government::Dictatorship),
+            demonym: None,
+            adjective: None,
+            language: Some(vec![
+                Languages::Common,
+                Languages::Hallit,
+                Languages::Varisian,
+            ]),
+            religion: Some(vec![
+                Deities::Gorum,
+                Deities::GreenFaith,
+                Deities::Hanspur,
+                Deities::Iomedae,
+            ]),
+        }
+    }
+    fn edasseril() -> Self {
+        Self {
+            nation: Nations::Edasseril,
+            nation_type: NationType::Normal,
+            continent: Continents::Avistan,
+            major_area: Some(MajorAreas::SagaLands),
+            capital: Some(Cities::XinEdasseril),
+            ruler: None,
+            government: None,
+            demonym: None,
+            adjective: None,
+            language: Some(vec![Languages::Thassilonian]),
+            religion: None,
+        }
+    }
+    fn eihlona() -> Self {
+        Self {
+            nation: Nations::Eihlona,
+            nation_type: NationType::Normal,
+            continent: Continents::Garund,
+            major_area: None,
+            capital: None,
+            ruler: None,
+            government: None,
+            demonym: Some("Eihlonan"),
+            adjective: Some(vec!["Eihlonan"]),
+            language: None,
+            religion: None,
+        }
+    }
+    fn ekujae() -> Self {
+        Self {
+            nation: Nations::Ekujae,
+            nation_type: NationType::Unlanded,
+            continent: Continents::Garund,
+            major_area: None,
+            capital: None,
+            ruler: None,
+            government: Some(Government::Democracy),
+            demonym: Some("Ekujae"),
+            adjective: Some(vec!["Ekujae"]),
+            language: None,
+            religion: Some(vec![Deities::Yuelral]),
+        }
+    }
+    fn eurythnia() -> Self {
+        Self {
+            nation: Nations::Eurythnia,
+            nation_type: NationType::Normal,
+            continent: Continents::Avistan,
+            major_area: Some(MajorAreas::SagaLands),
+            capital: Some(Cities::XinShalast),
+            ruler: Some(Individuals::Sorshen),
+            government: Some(Government::Monarchy),
+            demonym: None,
+            adjective: None,
+            language: None,
+            religion: Some(vec![Deities::Nocticula]),
+        }
+    }
+    fn empire_of_kelesh() -> Self {
+        Self {
+            nation: Nations::EmpireOfKelesh,
+            nation_type: NationType::Normal,
+            continent: Continents::Casmaron,
+            major_area: None,
+            capital: Some(Cities::Isfahel),
+            ruler: Some(Individuals::Kalish),
+            government: Some(Government::ImperialMonarchy),
+            demonym: Some("Keleshites"),
+            adjective: Some(vec!["Keleshite", "Kelesh"]),
+            language: Some(vec![Languages::Kelish]),
+            religion: Some(vec![
+                Deities::Abadar,
+                Deities::Sarenrae,
+                Deities::Irori,
+                Deities::Rovagug,
+            ]),
+        }
+    }
+    fn five_kings_mountains() -> Self {
+        Self {
+            nation: Nations::FiveKingsMountains,
+            nation_type: NationType::Normal,
+            continent: Continents::Avistan,
+            major_area: Some(MajorAreas::ShiningKingdoms),
+            capital: Some(Cities::Highhelm),
+            ruler: None,
+            government: Some(Government::GatheringCouncil),
+            demonym: None,
+            adjective: Some(vec!["FiveKings"]),
+            language: Some(vec![Languages::Dwarven]),
+            religion: Some(vec![Deities::Torag]),
+        }
+    }
+    fn galt() -> Self {
+        Self {
+            nation: Nations::Galt,
+            nation_type: NationType::Normal,
+            continent: Continents::Avistan,
+            major_area: Some(MajorAreas::ShiningKingdoms),
+            capital: Some(Cities::Isarn),
+            ruler: Some(Individuals::CamiliaDrannoch),
+            government: Some(Government::Council),
+            adjective: Some(vec!["Galtan"]),
+            demonym: Some("Galtans"),
+            language: Some(vec![Languages::Common, Languages::Hallit]),
+            religion: Some(vec![
+                Deities::Calistria,
+                Deities::CaydenCailean,
+                Deities::Erastil,
+                Deities::Iomedae,
+                Deities::Norgorber,
+                Deities::Shelyn,
+            ]),
+        }
+    }
+    fn geb() -> Self {
+        Self {
+            nation: Nations::Geb,
+            nation_type: NationType::Normal,
+            continent: Continents::Garund,
+            major_area: Some(MajorAreas::ImpossibleLands),
+            capital: Some(Cities::Mechitar),
+            ruler: Some(Individuals::Geb),
+            government: Some(Government::UndeadDictatorship),
+            demonym: Some("Gebbites"),
+            adjective: Some(vec!["Gebbite"]),
+            language: Some(vec![
+                Languages::Kelish,
+                Languages::Osiriani,
+                Languages::Necril,
+            ]),
+            religion: Some(vec![
+                Deities::Arazni,
+                Deities::Mahathallah,
+                Deities::Nethys,
+                Deities::Urgathoa,
+                Deities::ZonKuthon,
+            ]),
+        }
+    }
+    fn ghol_gan() -> Self {
+        Self {
+            nation: Nations::GholGan,
+            nation_type: NationType::NonExistent,
+            continent: Continents::Garund,
+            major_area: Some(MajorAreas::HighSeas),
+            capital: Some(Cities::Tzaarban),
+            ruler: None,
+            government: None,
+            demonym: Some("Ghol-Gani"),
+            adjective: Some(vec!["Ghol-Gan", "Ghol-Gani"]),
+            language: None,
+            religion: None,
+        }
+    }
+    fn gralton() -> Self {
+        Self {
+            nation: Nations::Gralton,
+            nation_type: NationType::Normal,
+            continent: Continents::Avistan,
+            major_area: Some(MajorAreas::BrokenLands),
+            capital: Some(Cities::Gralton),
+            ruler: Some(Individuals::MarniusCherlorne),
+            government: Some(Government::Oligarchy),
+            demonym: Some("Graltoners"),
+            adjective: Some(vec!["Gralton"]),
+            language: Some(vec![Languages::Common]),
+            religion: Some(vec![
+                Deities::Calistria,
+                Deities::CaydenCailean,
+                Deities::Erastil,
+                Deities::GreenFaith,
+                Deities::Norgorber,
+            ]),
+        }
+    }
+    fn gravelands() -> Self {
+        Self {
+            nation: Nations::Gravelands,
+            nation_type: NationType::Normal,
+            continent: Continents::Avistan,
+            major_area: Some(MajorAreas::EyeOfDread),
+            capital: None,
+            ruler: None,
+            government: Some(Government::Anarchy),
+            demonym: None,
+            adjective: None,
+            language: Some(vec![Languages::Varisian]),
+            religion: Some(vec![Deities::Urgathoa]),
+        }
+    }
+    fn halana() -> Self {
+        Self {
+            nation: Nations::Halana,
+            nation_type: NationType::Normal,
+            continent: Continents::Arcadia,
+            major_area: None,
+            capital: Some(Cities::Rookery),
+            ruler: None,
+            government: Some(Government::Theocracy),
+            demonym: None,
+            adjective: Some(vec!["Halana"]),
+            language: None,
+            religion: Some(vec![Deities::Pazuzu]),
+        }
+    }
+    fn hasanaliat() -> Self {
+        Self {
+            nation: Nations::Hasanaliat,
+            nation_type: NationType::Normal,
+            continent: Continents::CrownOfTheWorld,
+            major_area: None,
+            capital: None,
+            ruler: None,
+            government: Some(Government::Mahajanapada),
+            demonym: None,
+            adjective: None,
+            language: Some(vec![Languages::Erutaki]),
+            religion: None,
+        }
+    }
+    fn hermea() -> Self {
+        Self {
+            nation: Nations::Hermea,
+            nation_type: NationType::Normal,
+            continent: Continents::Avistan,
+            major_area: Some(MajorAreas::HighSeas),
+            capital: Some(Cities::Promise),
+            ruler: Some(Individuals::Mengkare),
+            government: Some(Government::ContractualDictatorship),
+            demonym: Some("Hermeans"),
+            adjective: Some(vec!["Hermean"]),
+            language: Some(vec![Languages::Common, Languages::Draconic]),
+            religion: Some(vec![Deities::Atheism]),
+        }
+    }
+    fn holomog() -> Self {
+        Self {
+            nation: Nations::Holomog,
+            nation_type: NationType::Normal,
+            continent: Continents::Garund,
+            major_area: None,
+            capital: None,
+            ruler: Some(Individuals::HoloEnyana),
+            government: Some(Government::Matriarchy),
+            demonym: None,
+            adjective: Some(vec!["Holoma"]),
+            language: Some(vec![Languages::Drooni, Languages::Empyrean]),
+            religion: Some(vec![Deities::Mazludeh]),
+        }
+    }
+    fn hwanggot() -> Self {
+        Self {
+            nation: Nations::Hwanggot,
+            nation_type: NationType::Normal,
+            continent: Continents::TianXia,
+            major_area: None,
+            capital: Some(Cities::Haseong),
+            ruler: Some(Individuals::HyeonGeonJi),
+            government: Some(Government::HereditaryMonarchy),
+            demonym: Some("Hwans"),
+            adjective: None,
+            language: Some(vec![Languages::Hwan, Languages::Tien]),
+            religion: Some(vec![
+                Deities::Kofusachi,
+                Deities::Shelyn,
+                Deities::SunWukong,
+            ]),
+        }
+    }
+    fn hymbria() -> Self {
+        Self {
+            nation: Nations::Hymbria,
+            nation_type: NationType::Normal,
+            continent: Continents::Avistan,
+            major_area: Some(MajorAreas::BrokenLands),
+            capital: Some(Cities::Mimere),
+            ruler: Some(Individuals::FerielNellmyr),
+            government: None,
+            demonym: None,
+            adjective: Some(vec!["Hymbrian"]),
+            language: None,
+            religion: Some(vec![
+                Deities::Calistria,
+                Deities::Desna,
+                Deities::Gozreh,
+                Deities::Nethys,
+            ]),
+        }
+    }
 }
-enum Oceans {
+
+    enum Oceans {
     Arcadian,
     Obari,
     Okaiyo,

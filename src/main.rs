@@ -227,6 +227,19 @@ enum Government {
     RowenRifle,
     Colony(Nations),
     OniShogunate,
+    Anarchy,
+    NearAnarchy,
+    Theocracy,
+    MercantileOligarchy,
+    Dictatorship,
+    Democracy,
+    ImperialMonarchy,
+    GatheringCouncil,
+    Council,
+    UndeadDictatorship,
+    Oligarchy,
+    ContractualDictatorship,
+    Matriarchy,
 
 }
 enum Individuals {
@@ -239,6 +252,20 @@ enum Individuals {
     NoleskiSurtova,
     AbrogailThrune,
     Tsuneni,
+    MartroLivondar,
+    Guxiya,
+    OrdrikTalhirk,
+    Kelldor,
+    TervinBlackshield,
+    Sorshen,
+    Kalish,
+    CamiliaDrannoch,
+    Geb,
+    MarniusCherlorne,
+    Mengkare,
+    HoloEnyana,
+    HyeonGeonJi,
+    FerielNellmyr,
 }
 
 
