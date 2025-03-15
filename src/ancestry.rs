@@ -111,9 +111,30 @@ impl Ancestry {
             "leshy" =>  Some(Self::leshy()),
             "orc" => Some(Self::orc()),
             "athamaru" => Some(Self::athamaru()),
+            "azarketi" => Some(Self::azarketi()),
+            "catfolk" => Some(Self::catfolk()),
+            "centaur" => Some(Self::centaur()),
+            "fetchling" => Some(Self::fetchling()),
+            "hobgoblin" => Some(Self::hobgoblin()),
+            "kholo" => Some(Self::kholo()),
+            "kitsune" => Some(Self::kitsune()),
+            "kobold" => Some(Self::kobold()),
+            "lizardfolk" => Some(Self::lizardfolk()),
+            "merfolk" => Some(Self::merfolk()),
+            "minotaur" => Some(Self::minotaur()),
+            "nagaji" => Some(Self::nagaji()),
+            "ratfolk" => Some(Self::ratfolk()),
+            "samsaran" => Some(Self::samsaran()),
+            "tanuki" => Some(Self::tanuki()),
+            "tengu" => Some(Self::tengu()),
+            "tripkee" => Some(Self::tripkee()),
+            "vanara" => Some(Self::vanara()),
+            "wayang" => Some(Self::wayang()),
             _ => None,
         }
     }
+
+    // Common Ancestries
     pub fn dwarf() -> Self {
         Ancestry {
             ancestry: Ancestries::Dwarf,
@@ -153,7 +174,6 @@ impl Ancestry {
             specials: vec![Specials::LowLightVision],
         }
     }
-
     pub fn gnome() -> Self {
         Ancestry {
             ancestry: Ancestries::Gnome,
@@ -173,7 +193,6 @@ impl Ancestry {
             specials: vec![Specials::LowLightVision],
         }
     }
-
     pub fn goblin() -> Self {
         Ancestry {
             ancestry: Ancestries::Goblin,
@@ -193,7 +212,6 @@ impl Ancestry {
             specials: vec![Specials::Darkvision],
         }
     }
-
     pub fn halfling() -> Self {
         Ancestry {
             ancestry: Ancestries::Halfling,
@@ -213,7 +231,6 @@ impl Ancestry {
             specials: vec![Specials::KeenEyes],
         }
     }
-
     pub fn human() -> Self {
         Ancestry {
             ancestry: Ancestries::Human,
@@ -234,7 +251,6 @@ impl Ancestry {
 
         }
     }
-
     pub fn leshy() -> Self {
         Ancestry {
             ancestry: Ancestries::Leshy,
@@ -254,7 +270,6 @@ impl Ancestry {
             specials: vec![Specials::LowLightVision, Specials::PlantNourishment],
         }
     }
-
     pub fn orc() -> Self {
         Ancestry {
             ancestry: Ancestries::Orc,
@@ -275,6 +290,7 @@ impl Ancestry {
         }
     }
 
+    // Uncommon Ancestries
     pub fn athamaru() -> Self {
         Self {
             ancestry: Ancestries::Athamaru,
@@ -576,10 +592,467 @@ impl Ancestry {
             free_boosts: 1,
             languages: vec![Languages::Common, Languages::Tanuki],
             free_languages: 0,
-            specials: vec![Specials::LowLightVision, Specials::ChangeShape], // tood duplicate change shape with different effects
+            specials: vec![Specials::LowLightVision, Specials::ChangeShape], // todo duplicate change shape with different effects
+        }
+    }
+    pub fn tengu() -> Self {
+        Self {
+            ancestry: Ancestries::Tengu,
+            traits: vec![Traits::Tengu, Traits::Humanoid],
+            hp: 6,
+            rarity: Rarity::Uncommon,
+            adult_hood: 15.0, // todo unknown
+            life_expectancy: 90, // todo unknown
+            average_height: 4.5,
+            size: Sizes::Medium,
+            speed: 25,
+            ability_boosts: vec![AbilityScores::Dexterity],
+            ability_flaws: None,
+            free_boosts: 1,
+            languages: vec![Languages::Common, Languages::Tengu],
+            free_languages: 0,
+            specials: vec![Specials::LowLightVision, Specials::SharpBeak],
+        }
+    }
+    pub fn tripkee() -> Self {
+        Self {
+            ancestry: Ancestries::Tripkee,
+            traits: vec![Traits::Tripkee, Traits::Humanoid],
+            hp: 6,
+            rarity: Rarity::Uncommon,
+            adult_hood: 12.0, 
+            life_expectancy: 60, 
+            average_height: 2.0,
+            size: Sizes::Small,
+            speed: 25,
+            ability_boosts: vec![AbilityScores::Dexterity, AbilityScores::Wisdom],
+            ability_flaws: vec![AbilityScores::Strength],
+            free_boosts: 1,
+            languages: vec![Languages::Common, Languages::Tripkee],
+            free_languages: 0,
+            specials: vec![Specials::LowLightVision, Specials::NaturalClimber],
+        }
+    }
+    pub fn vanara() -> Self {
+        Self {
+            ancestry: Ancestries::Vanara,
+            traits: vec![Traits::Vanara, Traits::Humanoid],
+            hp: 6,
+            rarity: Rarity::Uncommon,
+            adult_hood: 13.0, 
+            life_expectancy: 60, 
+            average_height: 4.5,
+            size: Sizes::Medium,
+            speed: 25,
+            ability_boosts: vec![AbilityScores::Dexterity],
+            ability_flaws: None,
+            free_boosts: 1,
+            languages: vec![Languages::Common, Languages::Vanara],
+            free_languages: 0,
+            specials: vec![Specials::LowLightVision, Specials::PrehensileTail],
+        }
+    }
+    pub fn wayang() -> Self {
+        Self {
+            ancestry: Ancestries::Wayang,
+            traits: vec![Traits::Wayang, Traits::Humanoid, Traits::Shadow],
+            hp: 6,
+            rarity: Rarity::Uncommon,
+            adult_hood: 15.0,  // todo unknown
+            life_expectancy: 90, // todo unknown
+            average_height: 3.0, // todo unknown
+            size: Sizes::Small,
+            speed: 25,
+            ability_boosts: vec![AbilityScores::Dexterity, AbilityScores::Charisma],
+            ability_flaws: vec![AbilityScores::Constitution],
+            free_boosts: 1,
+            languages: vec![Languages::Common, Languages::Wayang, Languages::Shadowtonuge],
+            free_languages: 0,
+            specials: vec![Specials::Darkvision],
         }
     }
 
+    // Rare Ancestries
+    pub fn anadi() -> Self {
+        Self {
+            ancestry: Ancestries::Anadi,
+            traits: vec![Traits::Anadi, Traits::Humanoid],
+            hp: 8,
+            rarity: Rarity::Rare,
+            adult_hood: 13.0,
+            life_expectancy: 80,
+            average_height: 5.5, // todo unknown
+            size: Sizes::Medium,
+            speed: 25,
+            ability_boosts: vec![AbilityScores::Dexterity, AbilityScores::Wisdom],
+            ability_flaws: vec![AbilityScores::Constitution],
+            free_boosts: 1,
+            languages: vec![Languages::Common, Languages::Mwangi],
+            free_languages: 0,
+            specials: vec![Specials::ChangeShape, Specials::Fangs], // todo duplicate change shape with different effects
+        }
+    }
+    pub fn android() -> Self {
+        Self {
+            ancestry: Ancestries::Android,
+            traits: vec![Traits::Android, Traits::Humanoid],
+            hp: 8,
+            rarity: Rarity::Rare,
+            adult_hood: 15.0, // toodo unknwon
+            life_expectancy: 100, // todo renewal
+            average_height: 5.5, // todo unknown
+            size: Sizes::Medium,
+            speed: 25,
+            ability_boosts: vec![AbilityScores::Intelligence, AbilityScores::Dexterity],
+            ability_flaws: vec![AbilityScores::Charisma],
+            free_boosts: 1,
+            languages: vec![Languages::Common, Languages::Androffan],
+            free_languages: 0,
+            specials: vec![Specials::Darkvision, Specials::Constructed, Specials::EmotionallyUnaware],
+        }
+    }
+    pub fn automaton() -> Self {
+        Self {
+            ancestry: Ancestries::Automaton,
+            traits: vec![Traits::Automaton, Traits::Humanoid, Traits::Construct],
+            hp: 8,
+            rarity: Rarity::Rare,
+            adult_hood: 15.0, // todo unknown
+            life_expectancy: -1, 
+            average_height: 5.5, // todo unknown
+            size: Sizes::Medium, // todo medium or small
+            speed: 25,
+            ability_boosts: vec![AbilityScores::Strength],
+            ability_flaws: None,
+            free_boosts: 1,
+            languages: vec![Languages::Common, Languages::Utopian],
+            free_languages: 0,
+            specials: vec![Specials::LowLightVision, Specials::AutomationCore, Specials::ConstructedBody],
+        }
+    }
+    pub fn awakened_animal() -> Self {
+        Self {
+            ancestry: Ancestries::AwakenedAnimal,
+            traits: vec![Traits::AwakenedAnimal, Traits::Humanoid, Traits::Beast],
+            hp: 8, // todo 6 for tiny and small 8 for medium 10 for large
+            rarity: Rarity::Rare,
+            adult_hood: 15.0, // todo unknown
+            life_expectancy: 90, // todo unknown
+            average_height: 5.5, // todo unknown
+            size: Sizes::Medium, // todo do tiny, small, medium, large
+            speed: 25,  // determined by heritage
+            ability_boosts: vec![AbilityScores::Constitution, AbilityScores::Wisdom],
+            ability_flaws: vec![AbilityScores::Intelligence],
+            free_boosts: 1,
+            languages: vec![Languages::Common],
+            free_languages: 0, // why
+            specials: vec![Specials::LowLightVision, Specials::AwakenedForm, Specials::AwakenedMind],
+        }
+    }
+    pub fn conrasu() -> Self {
+        Self {
+            ancestry: Ancestries::Conrasu,
+            traits: vec![Traits::Conrasu, Traits::Plant, Traits::Aeon],
+            hp: 10,
+            rarity: Rarity::Rare,
+            adult_hood: 15.0, // todo unknown
+            life_expectancy: 90, // todo unknown
+            average_height: 5.5, // todo unknown
+            size: Sizes::Medium,
+            speed: 25,
+            ability_boosts: vec![AbilityScores::Charisma, AbilityScores::Wisdom],
+            ability_flaws: vec![AbilityScores::Charisma],
+            free_boosts: 1,
+            languages: vec![Languages::Common, Languages::Rasu],
+            free_languages: 0,
+            specials: vec![Specials::SunlightHealing],
+        }
+    }
+    pub fn fleshwarp() -> Self {
+        Self {
+            ancestry: Ancestries::Fleshwarp,
+            traits: vec![Traits::Fleshwarp, Traits::Humanoid, Traits::Aberration],
+            hp: 10,
+            rarity: Rarity::Rare,
+            adult_hood: 15.0, // todo unknown
+            life_expectancy: 90, // todo unknown
+            average_height: 6, // todo 5 - 7
+            size: Sizes::Medium,
+            speed: 25,
+            ability_boosts: vec![AbilityScores::Constitution],
+            ability_flaws: None,
+            free_boosts: 1,
+            languages: vec![Languages::Common],
+            free_languages: 0,
+            specials: vec![Specials::Darkvision, Specials::UnusualAnatomy],
+        }
+    }
+    fn ghoran() -> Self {
+        Self {
+            ancestry: Ancestries::Ghoran,
+            traits: vec![Traits::Ghoran, Traits::Plant, Traits::Humanoid],
+            hp: 8,
+            rarity: Rarity::Rare,
+            adult_hood: 15.0, // todo unknown
+            life_expectancy: 90, // todo unknown
+            average_height: 5.5, // todo unknown
+            size: Sizes::Medium,
+            speed: 25,
+            ability_boosts: vec![AbilityScores::Constitution],
+            ability_flaws: None,
+            free_boosts: 1,
+            languages: vec![Languages::Common, Languages::Fey],
+            free_languages: 0,
+            specials: vec![Specials::LowLightVision, Specials::Photosynthesis],
+        }
+    }
+    fn goloma() -> Self {
+        Self {
+            ancestry: Ancestries::Goloma,
+            traits: vec![Traits::Goloma, Traits::Humanoid],
+            hp: 8,
+            rarity: Rarity::Rare,
+            adult_hood: 15.0, // todo unknown
+            life_expectancy: 90, // todo unknown
+            average_height: 5.5, // todo unknown
+            size: Sizes::Medium,
+            speed: 30,
+            ability_boosts: vec![AbilityScores::Wisdom],
+            ability_flaws: None,
+            free_boosts: 1,
+            languages: vec![Languages::Mwangi, Languages::Goloma],
+            free_languages: 0,
+            specials: vec![Specials::EyesInBack],
+        }
+    }
+    fn kashrishi() -> Self {
+        Self {
+            ancestry: Ancestries::Kashrishi,
+            traits: vec![Traits::Kashrishi, Traits::Humanoid],
+            hp: 8,
+            rarity: Rarity::Rare,
+            adult_hood: 15.0, // todo unknown
+            life_expectancy: 90, // todo unknown
+            average_height: 5.5, // todo unknown
+            size: Sizes::Small,
+            speed: 25,
+            ability_boosts: vec![AbilityScores::Constitution],
+            ability_flaws: None,
+            free_boosts: 1,
+            languages: vec![Languages::Common, Languages::Kashrishi],
+            free_languages: 0,
+            specials: vec![Specials::EmpathicSense, Specials::GlowingHorn],
+        }
+    }
+    fn poppet() -> Self {
+        Self {
+            ancestry: Ancestries::Poppet,
+            traits: vec![Traits::Poppet, Traits::Humanoid, Traits::Construct],
+            hp: 6,
+            rarity: Rarity::Rare,
+            adult_hood: 0, // todo unknown
+            life_expectancy: 30,
+            average_height: 2, //todo 1 - 3
+            size: Sizes::Small,
+            speed: 25,
+            ability_boosts: vec![AbilityScores::Constitution, AbilityScores::Charisma],
+            ability_flaws: vec![AbilityScores::Dexterity],
+            free_boosts: 1,
+            languages: vec![Languages::Common],
+            free_languages: 0,
+            specials: vec![Specials::Darkvision, Specials::Constructed, Specials::Flammable],
+        }
+    }
+    fn sarangay() -> Self {
+        Self {
+            ancestry: Ancestries::Sarangay,
+            traits: vec![Traits::Sarangay, Traits::Humanoid],
+            hp: 8,
+            rarity: Rarity::Rare,
+            adult_hood: 15.0, // todo unknown
+            life_expectancy: 90, // todo unknown
+            average_height: 6.5, // todo 6-7
+            size: Sizes::Medium,
+            speed: 25,
+            ability_boosts: vec![AbilityScores::Strength, AbilityScores::Charisma],
+            ability_flaws: vec![AbilityScores::Wisdom],
+            free_boosts: 1,
+            languages: vec![Languages::Common],
+            free_languages: 0,
+            specials: vec![Specials::HeadGem, Specials::Horns],
+        }
+    }
+    fn shisk() -> Self {
+        Self {
+            ancestry: Ancestries::Shisk,
+            traits: vec![Traits::Shisk, Traits::Humanoid],
+            hp: 8,
+            rarity: Rarity::Rare,
+            adult_hood: 15.0, // todo unknown
+            life_expectancy: 90, // todo unknown
+            average_height: 5.5, // todo unknown
+            size: Sizes::Medium,
+            speed: 25,
+            ability_boosts: vec![AbilityScores::Intelligence],
+            ability_flaws: None,
+            free_boosts: 1,
+            languages: vec![Languages::Mwangi, Languages::Shisk],
+            free_languages: 0,
+            specials: vec![Specials::Darkvision],
+        }
+    }
+    fn shoony() -> Self {
+        Self {
+            ancestry: Ancestries::Shoony,
+            traits: vec![Traits::Shoony, Traits::Humanoid],
+            hp: 6,
+            rarity: Rarity::Rare,
+            adult_hood: 9.0, // todo unknown
+            life_expectancy: 50, // todo unknown
+            average_height: 3.5, // todo unknown
+            size: Sizes::Small,
+            speed: 25,
+            ability_boosts: vec![AbilityScores::Dexterity, AbilityScores::Charisma],
+            ability_flaws: vec![AbilityScores::Constitution],
+            free_boosts: 1,
+            languages: vec![Languages::Common, Languages::Shoony],
+            free_languages: 0,
+            specials: vec![Specials::LowLightVision, Specials::BluntSnout],
+        }
+    }
+    fn skeleton() -> Self {
+        Self {
+            ancestry: Ancestries::Skeleton,
+            traits: vec![Traits::Skeleton, Traits::Undead],
+            hp: 6,
+            rarity: Rarity::Rare,
+            adult_hood: 0.0, // todo unknown
+            life_expectancy: -1, // todo unknown
+            average_height: 5.5, // todo unknown
+            size: Sizes::Medium,
+            speed: 25,
+            ability_boosts: vec![AbilityScores::Dexterity, AbilityScores::Charisma],
+            ability_flaws: vec![AbilityScores::Intelligence],
+            free_boosts: 1,
+            languages: vec![Languages::Common, Languages::Necril],
+            free_languages: 0,
+            specials: vec![Specials::Undeath],
+        }
+    }
+    fn sprite() -> Self {
+        Self {
+            ancestry: Ancestries::Sprite,
+            traits: vec![Traits::Sprite, Traits::Fey],
+            hp: 6,
+            rarity: Rarity::Rare,
+            adult_hood: 15.0,
+            life_expectancy: 1000,
+            average_height: 1.0,
+            size: Sizes::Tiny,
+            speed: 20,
+            ability_boosts: vec![AbilityScores::Dexterity, AbilityScores::Intelligence],
+            ability_flaws: vec![AbilityScores::Strength],
+            free_boosts: 1,
+            languages: vec![Languages::Common, Languages::Fey],
+            free_languages: 0,
+            specials: vec![Specials::LowLightVision, Specials::MagicStrikes],
+        }
+    }
+    fn strix() -> Self {
+        Self {
+            ancestry: Ancestries::Strix,
+            traits: vec![Traits::Strix, Traits::Humanoid],
+            hp: 8,
+            rarity: Rarity::Rare,
+            adult_hood: 14.0,
+            life_expectancy: 40,
+            average_height: 6.0,
+            size: Sizes::Medium,
+            speed: 25,
+            ability_boosts: vec![AbilityScores::Dexterity],
+            ability_flaws: None,
+            free_boosts: 1,
+            languages: vec![Languages::Common, Languages::Strix],
+            free_languages: 0,
+            specials: vec![Specials::LowLightVision, Specials::Wings],
+        }
+    }
+    fn surki() -> Self {
+        Self {
+            ancestry: Ancestries::Surki,
+            traits: vec![Traits::Surki, Traits::Humanoid],
+            hp: 6,
+            rarity: Rarity::Rare,
+            adult_hood: 50.0, // todo 10 - 100 years in eggs
+            life_expectancy: 60, // todo unknown
+            average_height: 5.5, // todo unknown
+            size: Sizes::Medium,
+            speed: 25,
+            ability_boosts: vec![AbilityScores::Constitution],
+            ability_flaws: None,
+            free_boosts: 1,
+            languages: vec![Languages::Common, Languages::Surki],
+            free_languages: 0,
+            specials: vec![Specials::LowLightVision, Specials::Magiphage],
+        }
+    }
+    fn vishkanya() -> Self {
+        Self {
+            ancestry: Ancestries::Vishkanya,
+            traits: vec![Traits::Vishkanya, Traits::Humanoid],
+            hp: 6,
+            rarity: Rarity::Rare,
+            adult_hood: 15.0, // todo unknown
+            life_expectancy: 90, // todo unknown
+            average_height: 6.5, // old age 7 women taller than men
+            size: Sizes::Medium,
+            speed: 25,
+            ability_boosts: vec![AbilityScores::Dexterity],
+            ability_flaws: None,
+            free_boosts: 1,
+            languages: vec![Languages::Common, Languages::Vishkanya],
+            free_languages: 0,
+            specials: vec![Specials::LowLightVision, Specials::InnateVenom],
+        }
+    }
+    fn yaksha() -> Self {
+        Self {
+            ancestry: Ancestries::Yaksha,
+            traits: vec![Traits::Yaksha, Traits::Spirit],
+            hp: 8,
+            rarity: Rarity::Rare,
+            adult_hood: 15.0, // todo unknown
+            life_expectancy: 100, // todo vows
+            average_height: 5, // 4-7
+            size: Sizes::Medium,
+            speed: 25,
+            ability_boosts: vec![AbilityScores::Charisma, AbilityScores::Constitution],
+            ability_flaws: vec![AbilityScores::Intelligence],
+            free_boosts: 1,
+            languages: vec![Languages::Common, Languages::Yaksha, Languages::Fey],
+            free_languages: 0,
+            specials: vec![Specials::LowLightVision],
+        }
+    }
+    fn yaoguai() -> Self {
+        Self {
+            ancestry: Ancestries::Yaoguai,
+            traits: vec![Traits::Yaoguai, Traits::Humanoid],
+            hp: 8,
+            rarity: Rarity::Rare,
+            adult_hood: 15.0, // todo unknown
+            life_expectancy: 90, // todo unknown
+            average_height: 6.5, // todo unknown
+            size: Sizes::Medium,
+            speed: 25,
+            ability_boosts: vec![AbilityScores::Charisma, AbilityScores::Constitution],
+            ability_flaws: vec![AbilityScores::Intelligence],
+            free_boosts: 1,
+            languages: vec![Languages::Common],
+            free_languages: 0,
+            specials: vec![Specials::ChangeShape], // todo duplicate change shape with different effects
+        }
+    }
 
 }
 

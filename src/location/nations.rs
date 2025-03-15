@@ -252,7 +252,7 @@ impl Nation {
             capital: Some(Settlements::Absalom),
             ruler: Some(Individuals::Gyr),
             government: Some(Government::GrandCouncil),
-            demonym: Some("Absalomians"),
+            demonym: Some(vec!["Absalomians"]),
             adjective: Some(vec!["Absalom"]),
             language: Some(Languages::all()),
             religion: Some(vec![
