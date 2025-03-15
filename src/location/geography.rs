@@ -35,6 +35,7 @@ pub enum Geography {
     CapeOfHope,
     CarpendenPlains,
     ColdforgeRiver,
+    CrystalFalls,
     DarkmoonPlain,
     DarkmoonRiver,
     DarkmoonVale,
@@ -234,6 +235,10 @@ pub enum Geography {
     NordeinGlacier,
     QiOamatokPass,
     StormfloodRiver,
+
+    // Gravelands,
+    Fangwood,
+    PitOfZedoran,
 }
 
 struct GeographyData {
@@ -429,6 +434,12 @@ impl GeographyData {
         GeographyData {
             geography: Geography::ColdforgeRiver,
             geography_type: GeographyType::River,
+        }
+    }
+    fn crystal_falls() -> Self {
+        GeographyData {
+            geography: Geography::CrystalFalls,
+            geography_type: GeographyType::Waterfall,
         }
     }
     fn darkmoon_plain() -> Self {
@@ -1537,6 +1548,22 @@ impl GeographyData {
             geography_type: GeographyType::River,
         }
     }
+
+    // Gravelands
+    fn fangwood() -> Self {
+        GeographyData {
+            geography: Geography::Fangwood,
+            geography_type: GeographyType::Forest,
+        }
+    }
+    fn pit_of_zedoran() -> Self {
+        GeographyData {
+            geography: Geography::PitOfZedoran,
+            geography_type: GeographyType::Sinkhole,
+        }
+    }
+
+
 }
 
 enum GeographyType {
@@ -1582,5 +1609,11 @@ enum GeographyType {
     LavaLake,
     AirRiver,
     Glacier,
+    Sinkhole,
+    Pit,
+    Fog,
+    IceLake,
+    Roads,
+    Swamp,
 }
 

@@ -126,6 +126,45 @@ enum Traits {
     Leshy,
     Plant,
     Orc,
+    Amphibious,
+    Athamaru,
+    Azarketi,
+    Catfolk,
+    Centaur,
+    Fetchling,
+    Hobgoblin,
+    Kholo,
+    Kitsune,
+    Beast,
+    Kobold,
+    Merfolk,
+    Nagaji,
+    Ratfolk,
+    Samsaran,
+    Tanuki,
+}
+
+#[derive(Debug)]
+enum Specials {
+    Darkvision,
+    ClanDagger,
+    LowLightVision,
+    KeenEyes,
+    PlantNourishment,
+    Hydration,
+    LandOnYourFeet,
+    Mount,
+    Robust,
+    Bite,
+    ChangeShape,
+    Claws,
+    AquaticAdaptation,
+    AquaticGrace,
+    Horns,
+    Fangs,
+    SharpTeeth,
+    WanderersSoul,
+    Cryptomnesia,
 }
 
 enum Rarity {
@@ -240,6 +279,9 @@ enum Government {
     Oligarchy,
     ContractualDictatorship,
     Matriarchy,
+    Meritocracy,
+    MilitaryDictatorship,
+    MilitaryProtectorate,
 }
 enum Individuals {
     Gyr,
@@ -279,7 +321,14 @@ enum Individuals {
     ElithuVargan,
     EstessaVandy,
     HanleyCasterog,
-
+    AnastasiaNikolaevna,
+    Hedvend,
+    Jelheg,
+    OrynoxMarchelin,
+    TelandiaEdasseril,
+    KamdynArnefax,
+    Ulthun,
+    AchilleParsall,
 }
 
 pub enum PlanarNations {
@@ -559,14 +608,7 @@ enum Sizes {
     Gargantuan,
 }
 
-#[derive(Debug)]
-enum Specials {
-    Darkvision,
-    ClanDagger,
-    LowLightVision,
-    KeenEyes,
-    PlantNourishment,
-}
+
 
 #[derive(Debug)]
 struct Player {}

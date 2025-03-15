@@ -252,6 +252,7 @@ pub enum Deities {
     Lalaci,
     Lixiriltha,
     PeacockSpirit,
+    Diabolism // todo check this one
 }
 
 enum DeityCategories {
