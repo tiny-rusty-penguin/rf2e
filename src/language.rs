@@ -141,7 +141,7 @@ pub enum Languages {
     Ratajin,
     ElderThing,
     Surki,
-    Lashunta
+    Lashunta,
 }
 
 enum LanguageType {
@@ -1360,4 +1360,5 @@ impl Language {
             rarity: Rarity::Rare,
         }
     }
+    
 }

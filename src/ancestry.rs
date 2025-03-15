@@ -1,5 +1,6 @@
 use std::vec;
 
+use crate::deities::Deities;
 use crate::{AbilityScores, Rarity, Sizes, Specials, Traits};
 use crate::language::Languages;
 use strum::EnumIter;
@@ -70,11 +71,13 @@ pub struct Ancestry {
     pub size: Sizes,
     pub speed: u8,
     pub ability_boosts: Vec<AbilityScores>,
-    pub ability_flaws: Vec<AbilityScores>,
+    pub ability_flaws: Option<Vec<AbilityScores>>,
     pub free_boosts: u8,
     pub languages: Vec<Languages>,
     pub free_languages: u8,
     pub specials: Vec<Specials>,
+
+    pub common_languages: Option<Vec<Languages>>,
 }
 pub struct AncestryDescription {
     pub description: &'static str,
@@ -130,6 +133,26 @@ impl Ancestry {
             "tripkee" => Some(Self::tripkee()),
             "vanara" => Some(Self::vanara()),
             "wayang" => Some(Self::wayang()),
+            "anadi" => Some(Self::anadi()),
+            "android" => Some(Self::android()),
+            "automaton" => Some(Self::automaton()),
+            "awakened_animal" => Some(Self::awakened_animal()),
+            "conrasu" => Some(Self::conrasu()),
+            "fleshwarp" => Some(Self::fleshwarp()),
+            "ghoran" => Some(Self::ghoran()),
+            "goloma" => Some(Self::goloma()),
+            "kashrishi" => Some(Self::kashrishi()),
+            "poppet" => Some(Self::poppet()),
+            "sarangay" => Some(Self::sarangay()),
+            "shisk" => Some(Self::shisk()),
+            "shoony" => Some(Self::shoony()),
+            "skeleton" => Some(Self::skeleton()),
+            "sprite" => Some(Self::sprite()),
+            "strix" => Some(Self::strix()),
+            "surki" => Some(Self::surki()),
+            "vishkanya" => Some(Self::vishkanya()),
+            "yaksha" => Some(Self::yaksha()),
+            "yaoguai" => Some(Self::yaoguai()),
             _ => None,
         }
     }
@@ -147,12 +170,19 @@ impl Ancestry {
             size: Sizes::Medium,
             speed: 20,
             ability_boosts: vec![AbilityScores::Constitution, AbilityScores::Wisdom],
-            ability_flaws: vec![AbilityScores::Charisma],
+            ability_flaws: Some(vec![AbilityScores::Charisma]),
             free_boosts: 1,
             languages: vec![Languages::Common, Languages::Dwarven],
             free_languages: 0,
             specials: vec![Specials::Darkvision, Specials::ClanDagger],
-
+            common_languages: Some(vec![
+                Languages::Gnomish,
+                Languages::Goblin,
+                Languages::Jotun,
+                Languages::Orcish,
+                Languages::Petran,
+                Languages::Sakvroth,
+            ]),
         }
     }
     pub fn elf() -> Self {
@@ -167,11 +197,20 @@ impl Ancestry {
             size: Sizes::Medium,
             speed: 30,
             ability_boosts: vec![AbilityScores::Dexterity, AbilityScores::Intelligence],
-            ability_flaws: vec![AbilityScores::Constitution],
+            ability_flaws: Some(vec![AbilityScores::Constitution]),
             free_boosts: 1,
             languages: vec![Languages::Common, Languages::Elven],
             free_languages: 0,
             specials: vec![Specials::LowLightVision],
+            common_languages: Some(vec![
+                Languages::Draconic,
+                Languages::Empyrean,
+                Languages::Fey,
+                Languages::Gnomish,
+                Languages::Goblin,
+                Languages::Kholo,
+                Languages::Orcish,
+            ]),
         }
     }
     pub fn gnome() -> Self {
@@ -186,11 +225,19 @@ impl Ancestry {
             size: Sizes::Small,
             speed: 25,
             ability_boosts: vec![AbilityScores::Constitution, AbilityScores::Charisma],
-            ability_flaws: vec![AbilityScores::Strength],
+            ability_flaws: Some(vec![AbilityScores::Strength]),
             free_boosts: 1,
             languages: vec![Languages::Common, Languages::Fey, Languages::Gnomish],
             free_languages: 0,
             specials: vec![Specials::LowLightVision],
+            common_languages: Some(vec![
+                Languages::Draconic,
+                Languages::Dwarven,
+                Languages::Elven,
+                Languages::Goblin,
+                Languages::Jotun,
+                Languages::Orcish,
+            ]),
         }
     }
     pub fn goblin() -> Self {
@@ -205,11 +252,19 @@ impl Ancestry {
             size: Sizes::Small,
             speed: 25,
             ability_boosts: vec![AbilityScores::Dexterity, AbilityScores::Charisma],
-            ability_flaws: vec![AbilityScores::Wisdom],
+            ability_flaws: Some(vec![AbilityScores::Wisdom]),
             free_boosts: 1,
             languages: vec![Languages::Common, Languages::Goblin],
             free_languages: 0,
             specials: vec![Specials::Darkvision],
+            common_languages: Some(vec![
+                Languages::Draconic,
+                Languages::Dwarven,
+                Languages::Gnomish,
+                Languages::Halfling,
+                Languages::Kholo,
+                Languages::Orcish,
+            ]),
         }
     }
     pub fn halfling() -> Self {
@@ -224,11 +279,17 @@ impl Ancestry {
             size: Sizes::Small,
             speed: 25,
             ability_boosts: vec![AbilityScores::Dexterity, AbilityScores::Wisdom],
-            ability_flaws: vec![AbilityScores::Strength],
+            ability_flaws: Some(vec![AbilityScores::Strength]),
             free_boosts: 1,
             languages: vec![Languages::Common, Languages::Halfling],
             free_languages: 0,
             specials: vec![Specials::KeenEyes],
+            common_languages: Some(vec![
+                Languages::Dwarven,
+                Languages::Elven,
+                Languages::Gnomish,
+                Languages::Goblin,
+            ]),
         }
     }
     pub fn human() -> Self {
@@ -243,11 +304,12 @@ impl Ancestry {
             size: Sizes::Medium,
             speed: 25,
             ability_boosts: vec![],
-            ability_flaws: vec![],
+            ability_flaws: None,
             free_boosts: 2,
             languages: vec![Languages::Common],
             free_languages: 1,
             specials: vec![],
+            common_languages: None,
 
         }
     }
@@ -263,11 +325,19 @@ impl Ancestry {
             size: Sizes::Small,
             speed: 25,
             ability_boosts: vec![AbilityScores::Wisdom, AbilityScores::Constitution],
-            ability_flaws: vec![AbilityScores::Intelligence],
+            ability_flaws: Some(vec![AbilityScores::Intelligence]),
             free_boosts: 1,
             languages: vec![Languages::Common, Languages::Fey],
             free_languages: 0,
             specials: vec![Specials::LowLightVision, Specials::PlantNourishment],
+            common_languages: Some(vec![
+                Languages::Draconic,
+                Languages::Elven,
+                Languages::Goblin,
+                Languages::Gnomish,
+                Languages::Halfling,
+                Languages::Sakvroth,
+            ]),
         }
     }
     pub fn orc() -> Self {
@@ -282,11 +352,17 @@ impl Ancestry {
             size: Sizes::Medium,
             speed: 25,
             ability_boosts: vec![AbilityScores::Strength, AbilityScores::Constitution],
-            ability_flaws: vec![AbilityScores::Intelligence],
+            ability_flaws: Some(vec![AbilityScores::Intelligence]),
             free_boosts: 1,
             languages: vec![Languages::Common, Languages::Orcish],
             free_languages: 0,
             specials: vec![Specials::Darkvision],
+            common_languages: Some(vec![
+                Languages::Goblin,
+                Languages::Jotun,
+                Languages::Petran,
+                Languages::Sakvroth,
+            ]),
         }
     }
 
@@ -303,11 +379,17 @@ impl Ancestry {
             size: Sizes::Medium,
             speed: 20, // todo 25 feet swim speed
             ability_boosts: vec![AbilityScores::Strength, AbilityScores::Wisdom],
-            ability_flaws: vec![AbilityScores::Intelligence],
+            ability_flaws: Some(vec![AbilityScores::Intelligence]),
             free_boosts: 1,
             languages: vec![Languages::Common, Languages::Thalassic],
             free_languages: 0,
             specials: vec![Specials::LowLightVision],
+            common_languages: Some(vec![
+                Languages::Alghollthu,
+                Languages::AncientAzlanti, // todo ancient??
+                Languages::Fey,
+                Languages::Tien,
+            ]),
         }
     }
     pub fn azarketi() -> Self {
@@ -322,11 +404,19 @@ impl Ancestry {
             size: Sizes::Medium,
             speed: 20,  // todo 30 feet swim speed
             ability_boosts: vec![AbilityScores::Constitution, AbilityScores::Charisma],
-            ability_flaws: vec![AbilityScores::Wisdom],
+            ability_flaws: Some(vec![AbilityScores::Wisdom]),
             free_boosts: 1,
             languages: vec![Languages::Common, Languages::Alghollthu],
             free_languages: 0,
             specials: vec![Specials::LowLightVision, Specials::Hydration],
+            common_languages: Some(vec![
+                Languages::Aklo,
+                Languages::Thalassic,
+                Languages::AncientAzlanti,
+                Languages::Draconic,
+                Languages::Elven,
+                Languages::Sakvroth,
+            ]),
         }
     }
     pub fn catfolk() -> Self {
@@ -341,11 +431,21 @@ impl Ancestry {
             size: Sizes::Medium,
             speed: 25,
             ability_boosts: vec![AbilityScores::Dexterity, AbilityScores::Charisma],
-            ability_flaws: vec![AbilityScores::Wisdom],
+            ability_flaws: Some(vec![AbilityScores::Wisdom]),
             free_boosts: 1,
             languages: vec![Languages::Common, Languages::Amurrun],
             free_languages: 0,
             specials: vec![Specials::LowLightVision, Specials::LandOnYourFeet],
+            common_languages: Some(vec![
+                Languages::Draconic,
+                Languages::Elven,
+                Languages::Gnomish,
+                Languages::Goblin,
+                Languages::Halfling,
+                Languages::Iruxi,
+                Languages::Jotun,
+                Languages::Fey,
+            ]),
         }
     }
     pub fn centaur() -> Self {
@@ -360,11 +460,20 @@ impl Ancestry {
             size: Sizes::Large,
             speed: 30,
             ability_boosts: vec![AbilityScores::Strength, AbilityScores::Wisdom],
-            ability_flaws: vec![AbilityScores::Charisma],
+            ability_flaws: Some(vec![AbilityScores::Charisma]),
             free_boosts: 1,
             languages: vec![Languages::Common, Languages::Fey],
             free_languages: 0,
             specials: vec![Specials::Darkvision, Specials::Mount, Specials::Robust],
+            common_languages: Some(vec![
+                Languages::Arboreal,
+                Languages::Cyclops,
+                Languages::Dwarven,
+                Languages::Elven,
+                Languages::Gnomish,
+                Languages::Halfling,
+                Languages::Jotun,
+            ]),
         }
     }
     pub fn fetchling() -> Self {
@@ -384,6 +493,13 @@ impl Ancestry {
             languages: vec![Languages::Common, Languages::Shadowtonuge], // todo shadowtounge spelling
             free_languages: 0,
             specials: vec![Specials::Darkvision],
+            common_languages: Some(vec![
+                Languages::Aklo,
+                Languages::Draconic,
+                Languages::Dziriak,
+                Languages::Necril,
+                Languages::Sakvroth,
+            ]),
         }
     }
     pub fn hobgoblin() -> Self {
@@ -398,11 +514,19 @@ impl Ancestry {
             size: Sizes::Medium,
             speed: 25,
             ability_boosts: vec![AbilityScores::Constitution, AbilityScores::Intelligence],
-            ability_flaws: vec![AbilityScores::Wisdom],
+            ability_flaws: Some(vec![AbilityScores::Wisdom]),
             free_boosts: 1,
             languages: vec![Languages::Common, Languages::Goblin],
             free_languages: 0,
             specials: vec![Specials::Darkvision],
+            common_languages: Some(vec![
+                Languages::Draconic,
+                Languages::Dwarven,
+                Languages::Jotun,
+                Languages::Halfling,
+                Languages::Kholo,
+                Languages::Orcish,
+            ]),
         }
     }
     pub fn kholo() -> Self {
@@ -417,11 +541,19 @@ impl Ancestry {
             size: Sizes::Medium,
             speed: 25,
             ability_boosts: vec![AbilityScores::Strength, AbilityScores::Intelligence],
-            ability_flaws: vec![AbilityScores::Wisdom],
+            ability_flaws: Some(vec![AbilityScores::Wisdom]),
             free_boosts: 1,
             languages: vec![Languages::Common, Languages::Kholo],
             free_languages: 0,
             specials: vec![Specials::LowLightVision, Specials::Bite],
+            common_languages: Some(vec![
+                Languages::Draconic,
+                Languages::Elven,
+                Languages::Fey,
+                Languages::Iruxi,
+                Languages::Necril,
+                Languages::Orcish,
+            ]),
         }
     }
     pub fn kitsune() -> Self {
@@ -441,6 +573,14 @@ impl Ancestry {
             languages: vec![Languages::Common, Languages::Tien],
             free_languages: 0,
             specials: vec![Specials::LowLightVision, Specials::ChangeShape],
+            common_languages: Some(vec![
+                Languages::Elven,
+                Languages::Gnomish,
+                Languages::Goblin,
+                Languages::Halfling,
+                Languages::Dwarven,
+                Languages::Fey,
+            ]),
         }
     }
     pub fn kobold() -> Self {
@@ -455,11 +595,21 @@ impl Ancestry {
             size: Sizes::Small,
             speed: 25,
             ability_boosts: vec![AbilityScores::Dexterity, AbilityScores::Charisma],
-            ability_flaws: vec![AbilityScores::Constitution],
+            ability_flaws: Some(vec![AbilityScores::Constitution]),
             free_boosts: 1,
             languages: vec![Languages::Common, Languages::Sakvroth],
             free_languages: 0,
             specials: vec![Specials::Darkvision],
+            common_languages: Some(vec![
+                Languages::Aklo,
+                Languages::Diabolic,
+                Languages::Draconic,
+                Languages::Dwarven,
+                Languages::Empyrean,
+                Languages::Fey,
+                Languages::Gnomish,
+                Languages::Petran,
+            ]),
         }
     }
     pub fn lizardfolk() -> Self {
@@ -474,11 +624,20 @@ impl Ancestry {
             size: Sizes::Medium,
             speed: 25,
             ability_boosts: vec![AbilityScores::Strength, AbilityScores::Wisdom],
-            ability_flaws: vec![AbilityScores::Intelligence],
+            ability_flaws: Some(vec![AbilityScores::Intelligence]),
             free_boosts: 1,
             languages: vec![Languages::Common, Languages::Iruxi],
             free_languages: 0,
             specials: vec![Specials::Claws, Specials::AquaticAdaptation],
+            common_languages: Some(vec![
+                Languages::Amurrun,
+                Languages::Boggard,
+                Languages::Draconic,
+                Languages::Elven,
+                Languages::Fey,
+                Languages::Jotun,
+                Languages::Thalassic,
+            ]),
         }
     }
     pub fn merfolk() -> Self {
@@ -493,11 +652,18 @@ impl Ancestry {
             size: Sizes::Medium,
             speed: 25,
             ability_boosts: vec![AbilityScores::Dexterity, AbilityScores::Charisma],
-            ability_flaws: vec![AbilityScores::Constitution],
+            ability_flaws: Some(vec![AbilityScores::Constitution]),
             free_boosts: 1,
             languages: vec![Languages::Common, Languages::Thalassic],
             free_languages: 0,
             specials: vec![Specials::LowLightVision, Specials::AquaticGrace, Specials::Hydration],
+            common_languages: Some(vec![
+                Languages::Aklo,
+                Languages::AncientAzlanti,
+                Languages::Draconic,
+                Languages::Elven,
+                Languages::Fey,
+            ]),
         }
     }
     pub fn minotaur() -> Self {
@@ -512,11 +678,18 @@ impl Ancestry {
             size: Sizes::Large,
             speed: 25,
             ability_boosts: vec![AbilityScores::Strength, AbilityScores::Constitution],
-            ability_flaws: vec![AbilityScores::Charisma],
+            ability_flaws: Some(vec![AbilityScores::Charisma]),
             free_boosts: 1,
             languages: vec![Languages::Common, Languages::Jotun],
             free_languages: 0,
             specials: vec![Specials::Darkvision, Specials::Horns],
+            common_languages: Some(vec![
+                Languages::Cyclops,
+                Languages::Dwarven,
+                Languages::Fey,
+                Languages::Petran,
+                Languages::Sakvroth,
+            ]),
         }
     }
     pub fn nagaji() -> Self {
@@ -536,6 +709,17 @@ impl Ancestry {
             languages: vec![Languages::Common, Languages::Nagaji],
             free_languages: 0,
             specials: vec![Specials::LowLightVision, Specials::Fangs],
+            common_languages: Some(vec![
+                Languages::Aklo,
+                Languages::Amurrun,
+                Languages::Thalassic,
+                Languages::Empyrean,
+                Languages::Draconic,
+                Languages::Sakvroth,
+                Languages::Shadowtonuge,
+                Languages::Tengu,
+                Languages::Vanara,
+            ]),
         }
     }
     pub fn ratfolk() -> Self {
@@ -550,11 +734,22 @@ impl Ancestry {
             size: Sizes::Small,
             speed: 25,
             ability_boosts: vec![AbilityScores::Dexterity, AbilityScores::Intelligence],
-            ability_flaws: vec![AbilityScores::Strength],
+            ability_flaws: Some(vec![AbilityScores::Strength]),
             free_boosts: 1,
             languages: vec![Languages::Common, Languages::Ysoki],
             free_languages: 0,
             specials: vec![Specials::LowLightVision, Specials::SharpTeeth],
+            common_languages: Some(vec![
+                Languages::Aklo,
+                Languages::Draconic,
+                Languages::Dwarven,
+                Languages::Goblin,
+                Languages::Gnomish,
+                Languages::Halfling,
+                Languages::Kholo,
+                Languages::Orcish,
+                Languages::Sakvroth,
+            ]),
         }
     }
     pub fn samsaran() -> Self {
@@ -569,11 +764,22 @@ impl Ancestry {
             size: Sizes::Medium,
             speed: 25,
             ability_boosts: vec![AbilityScores::Wisdom, AbilityScores::Constitution],
-            ability_flaws: vec![AbilityScores::Charisma],
+            ability_flaws: Some(vec![AbilityScores::Charisma]),
             free_boosts: 1,
             languages: vec![Languages::Common, Languages::Samsaran],
             free_languages: 0,
             specials: vec![Specials::LowLightVision, Specials::WanderersSoul, Specials::Cryptomnesia],
+            common_languages: Some(vec![
+                Languages::Chthonian,
+                Languages::Diabolic,
+                Languages::Draconic,
+                Languages::Empyrean,
+                Languages::Jotun,
+                Languages::Petran,
+                Languages::Pyric,
+                Languages::Sussuran,
+                Languages::Thalassic,
+            ]),
         }
     }
     pub fn tanuki() -> Self {
@@ -588,11 +794,19 @@ impl Ancestry {
             size: Sizes::Small,
             speed: 25,
             ability_boosts: vec![AbilityScores::Constitution, AbilityScores::Charisma],
-            ability_flaws: vec![AbilityScores::Wisdom],
+            ability_flaws: Some(vec![AbilityScores::Wisdom]),
             free_boosts: 1,
             languages: vec![Languages::Common, Languages::Tanuki],
             free_languages: 0,
             specials: vec![Specials::LowLightVision, Specials::ChangeShape], // todo duplicate change shape with different effects
+            common_languages: Some(vec![
+                Languages::Elven,
+                Languages::Fey,
+                Languages::Goblin,
+                Languages::Gnomish,
+                Languages::Kitsune,
+                Languages::Tengu,
+            ]),
         }
     }
     pub fn tengu() -> Self {
@@ -612,6 +826,14 @@ impl Ancestry {
             languages: vec![Languages::Common, Languages::Tengu],
             free_languages: 0,
             specials: vec![Specials::LowLightVision, Specials::SharpBeak],
+            common_languages: Some(vec![
+                Languages::Dwarven,
+                Languages::Elven,
+                Languages::Halfling,
+                Languages::Goblin,
+                Languages::Gnomish,
+                Languages::Fey,
+            ]),
         }
     }
     pub fn tripkee() -> Self {
@@ -626,11 +848,20 @@ impl Ancestry {
             size: Sizes::Small,
             speed: 25,
             ability_boosts: vec![AbilityScores::Dexterity, AbilityScores::Wisdom],
-            ability_flaws: vec![AbilityScores::Strength],
+            ability_flaws: Some(vec![AbilityScores::Strength]),
             free_boosts: 1,
             languages: vec![Languages::Common, Languages::Tripkee],
             free_languages: 0,
             specials: vec![Specials::LowLightVision, Specials::NaturalClimber],
+            common_languages: Some(vec![
+                Languages::Boggard,
+                Languages::Chthonian,
+                Languages::Draconic,
+                Languages::Elven,
+                Languages::Fey,
+                Languages::Iruxi,
+                Languages::Thalassic,
+            ]),
         }
     }
     pub fn vanara() -> Self {
@@ -650,6 +881,13 @@ impl Ancestry {
             languages: vec![Languages::Common, Languages::Vanara],
             free_languages: 0,
             specials: vec![Specials::LowLightVision, Specials::PrehensileTail],
+            common_languages: Some(vec![
+                Languages::Elven,
+                Languages::Gnomish,
+                Languages::Diabolic,
+                Languages::Goblin,
+                Languages::Fey,
+            ]),
         }
     }
     pub fn wayang() -> Self {
@@ -664,11 +902,20 @@ impl Ancestry {
             size: Sizes::Small,
             speed: 25,
             ability_boosts: vec![AbilityScores::Dexterity, AbilityScores::Charisma],
-            ability_flaws: vec![AbilityScores::Constitution],
+            ability_flaws: Some(vec![AbilityScores::Constitution]),
             free_boosts: 1,
             languages: vec![Languages::Common, Languages::Wayang, Languages::Shadowtonuge],
             free_languages: 0,
             specials: vec![Specials::Darkvision],
+            common_languages: Some(vec![
+                Languages::Dziriak,
+                Languages::Diabolic,
+                Languages::Minatan,
+                Languages::Nagaji,
+                Languages::Thalassic,
+                Languages::Vudrani,
+                Languages::Yaksha,
+            ]),
         }
     }
 
@@ -685,11 +932,19 @@ impl Ancestry {
             size: Sizes::Medium,
             speed: 25,
             ability_boosts: vec![AbilityScores::Dexterity, AbilityScores::Wisdom],
-            ability_flaws: vec![AbilityScores::Constitution],
+            ability_flaws: Some(vec![AbilityScores::Constitution]),
             free_boosts: 1,
             languages: vec![Languages::Common, Languages::Mwangi],
             free_languages: 0,
             specials: vec![Specials::ChangeShape, Specials::Fangs], // todo duplicate change shape with different effects
+            common_languages: Some(vec![
+                Languages::Draconic,
+                Languages::Elven,
+                Languages::Kholo,
+                Languages::Iruxi,
+                Languages::Orcish,
+                Languages::Fey,
+            ]),            
         }
     }
     pub fn android() -> Self {
@@ -704,11 +959,19 @@ impl Ancestry {
             size: Sizes::Medium,
             speed: 25,
             ability_boosts: vec![AbilityScores::Intelligence, AbilityScores::Dexterity],
-            ability_flaws: vec![AbilityScores::Charisma],
+            ability_flaws: Some(vec![AbilityScores::Charisma]),
             free_boosts: 1,
             languages: vec![Languages::Common, Languages::Androffan],
             free_languages: 0,
             specials: vec![Specials::Darkvision, Specials::Constructed, Specials::EmotionallyUnaware],
+            common_languages: Some(vec![
+                Languages::Chthonian,
+                Languages::Empyrean,
+                Languages::Draconic,
+                Languages::Dwarven,
+                Languages::Sakvroth,
+                Languages::Utopian,
+            ]),
         }
     }
     pub fn automaton() -> Self {
@@ -728,6 +991,16 @@ impl Ancestry {
             languages: vec![Languages::Common, Languages::Utopian],
             free_languages: 0,
             specials: vec![Specials::LowLightVision, Specials::AutomationCore, Specials::ConstructedBody],
+            common_languages: Some(vec![
+                Languages::Chthonian,
+                Languages::Thalassic,
+                Languages::Sussuran,
+                Languages::Empyrean,
+                Languages::Elven,
+                Languages::Pyric,
+                Languages::Diabolic,
+                Languages::Petran,
+            ]),
         }
     }
     pub fn awakened_animal() -> Self {
@@ -742,11 +1015,12 @@ impl Ancestry {
             size: Sizes::Medium, // todo do tiny, small, medium, large
             speed: 25,  // determined by heritage
             ability_boosts: vec![AbilityScores::Constitution, AbilityScores::Wisdom],
-            ability_flaws: vec![AbilityScores::Intelligence],
+            ability_flaws: Some(vec![AbilityScores::Intelligence]),
             free_boosts: 1,
             languages: vec![Languages::Common],
             free_languages: 0, // why
             specials: vec![Specials::LowLightVision, Specials::AwakenedForm, Specials::AwakenedMind],
+            common_languages: None,
         }
     }
     pub fn conrasu() -> Self {
@@ -761,11 +1035,19 @@ impl Ancestry {
             size: Sizes::Medium,
             speed: 25,
             ability_boosts: vec![AbilityScores::Charisma, AbilityScores::Wisdom],
-            ability_flaws: vec![AbilityScores::Charisma],
+            ability_flaws: Some(vec![AbilityScores::Charisma]),
             free_boosts: 1,
             languages: vec![Languages::Common, Languages::Rasu],
             free_languages: 0,
             specials: vec![Specials::SunlightHealing],
+            common_languages: Some(vec![
+                Languages::Empyrean,
+                Languages::Elven,
+                Languages::Iruxi,
+                Languages::Fey,
+                Languages::Petran,
+                Languages::Utopian,
+            ]),
         }
     }
     pub fn fleshwarp() -> Self {
@@ -776,7 +1058,7 @@ impl Ancestry {
             rarity: Rarity::Rare,
             adult_hood: 15.0, // todo unknown
             life_expectancy: 90, // todo unknown
-            average_height: 6, // todo 5 - 7
+            average_height: 6.0, // todo 5 - 7
             size: Sizes::Medium,
             speed: 25,
             ability_boosts: vec![AbilityScores::Constitution],
@@ -785,6 +1067,14 @@ impl Ancestry {
             languages: vec![Languages::Common],
             free_languages: 0,
             specials: vec![Specials::Darkvision, Specials::UnusualAnatomy],
+            common_languages: Some(vec![
+                Languages::Aklo,
+                Languages::Draconic,
+                Languages::Dwarven,
+                Languages::Goblin,
+                Languages::Elven,
+                Languages::Sakvroth,
+            ]),
         }
     }
     fn ghoran() -> Self {
@@ -804,6 +1094,13 @@ impl Ancestry {
             languages: vec![Languages::Common, Languages::Fey],
             free_languages: 0,
             specials: vec![Specials::LowLightVision, Specials::Photosynthesis],
+            common_languages: Some(vec![
+                Languages::Aklo,
+                Languages::Draconic,
+                Languages::Elven,
+                Languages::Gnomish,
+                Languages::Jotun,
+            ]),
         }
     }
     fn goloma() -> Self {
@@ -823,6 +1120,16 @@ impl Ancestry {
             languages: vec![Languages::Mwangi, Languages::Goloma],
             free_languages: 0,
             specials: vec![Specials::EyesInBack],
+            common_languages: Some(vec![
+                Languages::Chthonian,
+                Languages::Aklo,
+                Languages::Draconic,
+                Languages::Elven,
+                Languages::Halfling,
+                Languages::Necril,
+                Languages::Orcish,
+                Languages::Fey,
+            ]),
         }
     }
     fn kashrishi() -> Self {
@@ -842,6 +1149,13 @@ impl Ancestry {
             languages: vec![Languages::Common, Languages::Kashrishi],
             free_languages: 0,
             specials: vec![Specials::EmpathicSense, Specials::GlowingHorn],
+            common_languages: Some(vec![
+                Languages::Thalassic,
+                Languages::Empyrean,
+                Languages::Draconic,
+                Languages::Fey,
+                Languages::Petran,
+            ]),
         }
     }
     fn poppet() -> Self {
@@ -850,17 +1164,25 @@ impl Ancestry {
             traits: vec![Traits::Poppet, Traits::Humanoid, Traits::Construct],
             hp: 6,
             rarity: Rarity::Rare,
-            adult_hood: 0, // todo unknown
+            adult_hood: 0.0, // todo unknown
             life_expectancy: 30,
-            average_height: 2, //todo 1 - 3
+            average_height: 2.0, //todo 1 - 3
             size: Sizes::Small,
             speed: 25,
             ability_boosts: vec![AbilityScores::Constitution, AbilityScores::Charisma],
-            ability_flaws: vec![AbilityScores::Dexterity],
+            ability_flaws: Some(vec![AbilityScores::Dexterity]),
             free_boosts: 1,
             languages: vec![Languages::Common],
             free_languages: 0,
             specials: vec![Specials::Darkvision, Specials::Constructed, Specials::Flammable],
+            common_languages: Some(vec![
+                Languages::Draconic,
+                Languages::Dwarven,
+                Languages::Elven,
+                Languages::Gnomish,
+                Languages::Goblin,
+                Languages::Fey,
+            ]),
         }
     }
     fn sarangay() -> Self {
@@ -875,11 +1197,21 @@ impl Ancestry {
             size: Sizes::Medium,
             speed: 25,
             ability_boosts: vec![AbilityScores::Strength, AbilityScores::Charisma],
-            ability_flaws: vec![AbilityScores::Wisdom],
+            ability_flaws: Some(vec![AbilityScores::Wisdom]),
             free_boosts: 1,
             languages: vec![Languages::Common],
             free_languages: 0,
             specials: vec![Specials::HeadGem, Specials::Horns],
+            common_languages: Some(vec![
+                Languages::Empyrean,
+                Languages::Fey,
+                Languages::Nagaji,
+                Languages::Petran,
+                Languages::Pyric,
+                Languages::Sussuran,
+                Languages::Thalassic,
+                Languages::Yaksha,
+            ]),
         }
     }
     fn shisk() -> Self {
@@ -899,6 +1231,7 @@ impl Ancestry {
             languages: vec![Languages::Mwangi, Languages::Shisk],
             free_languages: 0,
             specials: vec![Specials::Darkvision],
+            common_languages: None,
         }
     }
     fn shoony() -> Self {
@@ -913,11 +1246,18 @@ impl Ancestry {
             size: Sizes::Small,
             speed: 25,
             ability_boosts: vec![AbilityScores::Dexterity, AbilityScores::Charisma],
-            ability_flaws: vec![AbilityScores::Constitution],
+            ability_flaws: Some(vec![AbilityScores::Constitution]),
             free_boosts: 1,
             languages: vec![Languages::Common, Languages::Shoony],
             free_languages: 0,
             specials: vec![Specials::LowLightVision, Specials::BluntSnout],
+            common_languages: Some(vec![
+                Languages::Dwarven,
+                Languages::Goblin,
+                Languages::Gnomish,
+                Languages::Halfling,
+                Languages::Petran,
+            ]),
         }
     }
     fn skeleton() -> Self {
@@ -932,11 +1272,19 @@ impl Ancestry {
             size: Sizes::Medium,
             speed: 25,
             ability_boosts: vec![AbilityScores::Dexterity, AbilityScores::Charisma],
-            ability_flaws: vec![AbilityScores::Intelligence],
+            ability_flaws: Some(vec![AbilityScores::Intelligence]),
             free_boosts: 1,
             languages: vec![Languages::Common, Languages::Necril],
             free_languages: 0,
             specials: vec![Specials::Undeath],
+            common_languages: Some(vec![
+                Languages::Aklo,
+                Languages::Dwarven,
+                Languages::Elven,
+                Languages::Diabolic,
+                Languages::Orcish,
+                Languages::Sakvroth,
+            ]),
         }
     }
     fn sprite() -> Self {
@@ -951,11 +1299,19 @@ impl Ancestry {
             size: Sizes::Tiny,
             speed: 20,
             ability_boosts: vec![AbilityScores::Dexterity, AbilityScores::Intelligence],
-            ability_flaws: vec![AbilityScores::Strength],
+            ability_flaws: Some(vec![AbilityScores::Strength]),
             free_boosts: 1,
             languages: vec![Languages::Common, Languages::Fey],
             free_languages: 0,
             specials: vec![Specials::LowLightVision, Specials::MagicStrikes],
+            common_languages: Some(vec![
+                Languages::Empyrean,
+                Languages::Draconic,
+                Languages::Elven,
+                Languages::Gnomish,
+                Languages::Goblin,
+                Languages::Jotun,
+            ]),
         }
     }
     fn strix() -> Self {
@@ -975,6 +1331,12 @@ impl Ancestry {
             languages: vec![Languages::Common, Languages::Strix],
             free_languages: 0,
             specials: vec![Specials::LowLightVision, Specials::Wings],
+            common_languages: Some(vec![
+                Languages::Draconic,
+                Languages::Jotun,
+                Languages::Gnomish,
+                Languages::Diabolic,
+            ]),
         }
     }
     fn surki() -> Self {
@@ -994,6 +1356,11 @@ impl Ancestry {
             languages: vec![Languages::Common, Languages::Surki],
             free_languages: 0,
             specials: vec![Specials::LowLightVision, Specials::Magiphage],
+            common_languages: Some(vec![
+                Languages::Elven,
+                Languages::Fey,
+                Languages::Sakvroth,
+            ]),
         }
     }
     fn vishkanya() -> Self {
@@ -1013,6 +1380,15 @@ impl Ancestry {
             languages: vec![Languages::Common, Languages::Vishkanya],
             free_languages: 0,
             specials: vec![Specials::LowLightVision, Specials::InnateVenom],
+            common_languages: Some(vec![
+                Languages::Aklo,
+                Languages::Thalassic,
+                Languages::Draconic,
+                Languages::Elven,
+                Languages::Goblin,
+                Languages::Sakvroth,
+                Languages::Vanara,
+            ]),
         }
     }
     fn yaksha() -> Self {
@@ -1023,15 +1399,22 @@ impl Ancestry {
             rarity: Rarity::Rare,
             adult_hood: 15.0, // todo unknown
             life_expectancy: 100, // todo vows
-            average_height: 5, // 4-7
+            average_height: 5.0, // 4-7
             size: Sizes::Medium,
             speed: 25,
             ability_boosts: vec![AbilityScores::Charisma, AbilityScores::Constitution],
-            ability_flaws: vec![AbilityScores::Intelligence],
+            ability_flaws: Some(vec![AbilityScores::Intelligence]),
             free_boosts: 1,
             languages: vec![Languages::Common, Languages::Yaksha, Languages::Fey],
             free_languages: 0,
             specials: vec![Specials::LowLightVision],
+            common_languages: Some(vec![
+                Languages::Empyrean,
+                Languages::Diabolic,
+                Languages::Nagaji,
+                Languages::Tengu,
+                Languages::Vudrani,
+            ]),
         }
     }
     fn yaoguai() -> Self {
@@ -1046,11 +1429,22 @@ impl Ancestry {
             size: Sizes::Medium,
             speed: 25,
             ability_boosts: vec![AbilityScores::Charisma, AbilityScores::Constitution],
-            ability_flaws: vec![AbilityScores::Intelligence],
+            ability_flaws: Some(vec![AbilityScores::Intelligence]),
             free_boosts: 1,
             languages: vec![Languages::Common],
             free_languages: 0,
             specials: vec![Specials::ChangeShape], // todo duplicate change shape with different effects
+            common_languages: Some(vec![
+                Languages::Aklo,
+                Languages::Draconic,
+                Languages::Elven,
+                Languages::Fey,
+                Languages::Kitsune,
+                Languages::Nagaji,
+                Languages::Sakvroth,
+                Languages::Tengu,
+                Languages::Ysoki,
+            ]),
         }
     }
 
