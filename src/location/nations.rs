@@ -924,6 +924,330 @@ impl Nation {
             religion: Some(vec![Deities::Iomedae, Deities::Milani, Deities::Sarenrae]),
         }
     }
+    fn mendev() -> Self {
+        Self {
+            nation: Nations::Mendev,
+            nation_type: NationType::Normal,
+            continent: Continents::Avistan,
+            major_area: Some(MajorAreas::BrokenLands),
+            capital: Some(Settlements::Nerosyan),
+            ruler: Some(Individuals::Irahai),
+            government: Some(Government::Monarchy),
+            demonym: Some(vec!["Mendevians"]),
+            adjective: Some(vec!["Mendevian"]),
+            language: Some(vec![Languages::Common, Languages::Hallit]),
+            religion: Some(vec![Deities::Iomedae]),
+        }
+    }
+    fn mierani() -> Self {
+        Self {
+            nation: Nations::Mierani,
+            nation_type: NationType::NonExistent,
+            continent: Continents::Avistan,
+            major_area: Some(MajorAreas::SagaLands),
+            capital: None,
+            ruler: None,
+            government: None,
+            demonym: Some(vec!["Mierani"]),
+            adjective: Some(vec!["Mierani"]),
+            language: Some(vec![Languages::Elven]),
+            religion: None,
+        }
+    }
+    fn mivon() -> Self {
+        Self {
+            nation: Nations::Mivon,
+            nation_type: NationType::Normal,
+            continent: Continents::Avistan,
+            major_area: Some(MajorAreas::BrokenLands),
+            capital: Some(Settlements::Mivon),
+            ruler: Some(Individuals::RastonSelline),
+            government: Some(Government::Meritocracy),
+            demonym: Some(vec!["Mivoni"]),
+            adjective: Some(vec!["Mivoni"]),
+            language: Some(vec![Languages::Common, Languages::Hallit]),
+            religion: Some(vec![Deities::Abadar, Deities::Gorum, Deities::Pharasma]),
+        }
+    }
+    fn molthune() -> Self {
+        Self {
+            nation: Nations::Molthune,
+            nation_type: NationType::Normal,
+            continent: Continents::Avistan,
+            major_area: Some(MajorAreas::EyeOfDread),
+            capital: Some(Settlements::Canorate),
+            ruler: Some(Individuals::MarkwinTeldas),
+            government: Some(Government::MilitaryOligarchy),
+            demonym: Some(vec!["Molthuni"]),
+            adjective: Some(vec!["Molthuni"]),
+            language: Some(vec![Languages::Common, Languages::Varisian]),
+            religion: Some(vec![Deities::Abadar, Deities::Erastil, Deities::Iomedae]),
+        }
+    }
+    fn mordant_spire() -> Self {
+        Self {
+            nation: Nations::MordantSpire,
+            nation_type: NationType::Normal,
+            continent: Continents::Avistan,
+            major_area: Some(MajorAreas::HighSeas),
+            capital: Some(Settlements::MordantSpire),
+            ruler: None,
+            government: Some(Government::SecretCouncilOfElders),
+            demonym: Some(vec!["Spiresworn"]),
+            adjective: Some(vec!["Mordan Spire"]),
+            language: Some(vec![Languages::AncientAzlanti]),
+            religion: Some(vec![Deities::Gozreh]), // todo elven pantheon
+        }
+    }
+    fn narven() -> Self {
+        Self {
+            nation: Nations::Narven,
+            nation_type: NationType::NonExistent,
+            continent: Continents::Avistan,
+            major_area: Some(MajorAreas::ShiningKingdoms),
+            capital: None,
+            ruler: Some(Individuals::NarvenFeathereyes),
+            government: Some(Government::Theocracy),
+            demonym: None,
+            adjective: None,
+            language: None,
+            religion: Some(vec![Deities::GreenFaith]),
+        }
+    }
+    fn new_thassilon() -> Self {
+        Self {
+            nation: Nations::NewThassilon,
+            nation_type: NationType::Normal,
+            continent: Continents::Avistan,
+            major_area: Some(MajorAreas::SagaLands),
+            capital: Some(Settlements::XinShalast),
+            ruler: Some(Individuals::Sorshen),
+            government: Some(Government::ArcaneMeritocracy),
+            demonym: None,
+            adjective: Some(vec!["New Thassilonian"]),
+            language: Some(vec![Languages::Thassilonian, Languages::Common]),
+            religion: Some(vec![Deities::Nocticula]),
+        }
+    }
+    fn nidal() -> Self {
+        Self {
+            nation: Nations::Nidal,
+            nation_type: NationType::Normal,
+            continent: Continents::Avistan,
+            major_area: Some(MajorAreas::OldCheliax),
+            capital: Some(Settlements::Pangolais),
+            ruler: Some(Individuals::BlackTriune),
+            government: Some(Government::MilitaristicTheocracy),
+            demonym: Some(vec!["Nidalese"]),
+            adjective: Some(vec!["Nidalese"]),
+            language: Some(vec![Languages::Varisian, Languages::Common, Languages::Shadowtonuge]),
+            religion: Some(vec![Deities::ZonKuthon, Deities::Asmodeus, Deities::Desna]),
+        }
+    }
+    fn nirmathas() -> Self {
+        Self {
+            nation: Nations::Nirmathas,
+            nation_type: NationType::Normal,
+            continent: Continents::Avistan,
+            major_area: Some(MajorAreas::EyeOfDread),
+            capital: Some(Settlements::Tamran),
+            ruler: Some(Individuals::WeslenGavirk),
+            government: Some(Government::Meritocracy),
+            demonym: Some(vec!["Nirmathi"]),
+            adjective: Some(vec!["Nirmathi"]),
+            language: Some(vec![Languages::Common, Languages::Varisian]),
+            religion: Some(vec![Deities::Erastil, Deities::Gorum, Deities::Iomedae]),
+        }
+    }
+    fn numeria() -> Self {
+        Self {
+            nation: Nations::Numeria,
+            nation_type: NationType::Normal,
+            continent: Continents::Avistan,
+            major_area: Some(MajorAreas::BrokenLands),
+            capital: Some(Settlements::Starfall),
+            ruler: Some(Individuals::KevothKul),
+            government: Some(Government::BarbaricMonarchy),
+            demonym: Some(vec!["Numerians"]),
+            adjective: Some(vec!["Numerian"]),
+            language: Some(vec![Languages::Hallit]),
+            religion: Some(vec![
+                Deities::Abadar,
+                Deities::Brigh,
+                Deities::Desna,
+                Deities::Erastil,
+                Deities::Gorum,
+                Deities::Iomedae,
+                Deities::Baphomet,
+                Deities::Deskari,
+                Deities::IronGods,
+            ]),
+        }
+    }
+    fn oprak() -> Self {
+        Self {
+            nation: Nations::Oprak,
+            nation_type: NationType::Normal,
+            continent: Continents::Avistan,
+            major_area: Some(MajorAreas::BrokenLands),
+            capital: Some(Settlements::Hunthul),
+            ruler: Some(Individuals::Azaersi),
+            government: Some(Government::MilitaryDictatorship),
+            demonym: None,
+            adjective: Some(vec!["Oprakan"]),
+            language: Some(vec![Languages::Goblin]),
+            religion: Some(vec![Deities::Hadregash]),
+        }
+    }
+    fn pitax() -> Self {
+        Self {
+            nation: Nations::Pitax,
+            nation_type: NationType::Normal,
+            continent: Continents::Avistan,
+            major_area: Some(MajorAreas::BrokenLands),
+            capital: Some(Settlements::Pitax),
+            ruler: Some(Individuals::CastruccioIrovetti),
+            government: Some(Government::Autocracy),
+            demonym: Some(vec!["Pitaxians"]),
+            adjective: Some(vec!["Pitaxian"]),
+            language: Some(vec![Languages::Common]),
+            religion: Some(vec![Deities::Calistria, Deities::Desna]),
+        }
+    }
+    fn taldor() -> Self {
+        Self {
+            nation: Nations::Taldor,
+            nation_type: NationType::Normal,
+            continent: Continents::Avistan,
+            major_area: Some(MajorAreas::ShiningKingdoms),
+            capital: Some(Settlements::Oppara),
+            ruler: Some(Individuals::EutropiaStavian),
+            government: Some(Government::BureaucraticMonarchy),
+            demonym: Some(vec!["Taldans"]),
+            adjective: Some(vec!["Taldan"]),
+            language: Some(vec![Languages::Common, Languages::Kelish]),
+            religion: Some(vec![
+                Deities::Abadar,
+                Deities::Aroden,
+                Deities::Calistria,
+                Deities::CaydenCailean,
+                Deities::Norgorber,
+                Deities::Sarenrae,
+                Deities::Shelyn,
+            ]),
+            }
+        }
+        fn protectorate_of_the_black_marquis() -> Self {
+            Self {
+                nation: Nations::ProtectorateOfTheBlackMarquis,
+                nation_type: NationType::Normal,
+                continent: Continents::Avistan,
+                major_area: Some(MajorAreas::BrokenLands),
+                capital: Some(Settlements::Deadbridge),
+                ruler: Some(Individuals::UrdulBazzak),
+                government: Some(Government::PirateDespotAndCouncil),
+                demonym: None,
+                adjective: None,
+                language: None,
+                religion: None,
+            }
+        }
+        fn qadira() -> Self {
+            Self {
+                nation: Nations::Qadira,
+                nation_type: NationType::Normal,
+                continent: Continents::Avistan,
+                major_area: Some(MajorAreas::GoldenRoad),
+                capital: Some(Settlements::Katheer),
+                ruler: Some(Individuals::Xerbystes),
+                government: Some(Government::Satrapy(Nations::Kelesh)),
+                demonym: Some(vec!["Qadirans"]),
+                adjective: Some(vec!["Qadiran", "Qadiri"]),
+                language: Some(vec![Languages::Kelish]),
+                religion: Some(vec![
+                    Deities::Irori,
+                    Deities::Nethys,
+                    Deities::Pharasma,
+                    Deities::Rovagug,
+                    Deities::Sarenrae,
+                    // todo elemental lords
+                ]),
+            }
+        }
+        fn ravounel() -> Self {
+            Self {
+                nation: Nations::Ravounel,
+                nation_type: NationType::Normal,
+                continent: Continents::Avistan,
+                major_area: Some(MajorAreas::OldCheliax),
+                capital: Some(Settlements::Kintargo),
+                ruler: Some(Individuals::JiliaBainilus),
+                government: Some(Government::Confederation),
+                demonym: None,
+                adjective: None,
+                language: Some(vec![Languages::Common]),
+                religion: Some(vec![Deities::Calistria, Deities::Shelyn]),
+            }
+        }
+        fn razmiran() -> Self {
+            Self {
+                nation: Nations::Razmiran,
+                nation_type: NationType::Normal,
+                continent: Continents::Avistan,
+                major_area: Some(MajorAreas::BrokenLands),
+                capital: Some(Settlements::Thronestep),
+                ruler: Some(Individuals::Razmir),
+                government: Some(Government::TheocracticDictatorship),
+                demonym: Some(vec!["Razmiri"]),
+                adjective: Some(vec!["Razmiri"]),
+                language: None,
+                religion: Some(vec![Deities::Razmir]),
+            }
+        }
+        fn realm_of_the_mammoth_lords() -> Self {
+            Self {
+                nation: Nations::RealmOfTheMammothLords,
+                nation_type: NationType::Normal,
+                continent: Continents::Avistan,
+                major_area: Some(MajorAreas::SagaLands),
+                capital: None,
+                ruler: None,
+                government: Some(Government::MammothLordsTribal),
+                demonym: Some(vec!["MammothLords"]),
+                adjective: None,
+                language: Some(vec![Languages::Hallit, Languages::Jotun]),
+                religion: Some(vec![Deities::Gorum, Deities::Desna, Deities::Rovagug]),
+            }
+        }
+        fn river_kingdoms() -> Self {
+            Self {
+                nation: Nations::RiverKingdoms,
+                nation_type: NationType::Normal,
+                continent: Continents::Avistan,
+                major_area: Some(MajorAreas::BrokenLands),
+                capital: None,
+                ruler: None,
+                government: Some(Government::SqubblingMonarchies),
+                demonym: Some(vec!["Riverfolk"]),
+                adjective: Some(vec!["Riverfolk", "River Kingdoms"]),
+                language: Some(vec![Languages::Common, Languages::Hallit]),
+                religion: Some(vec![
+                    Deities::Calistria,
+                    Deities::CaydenCailean,
+                    Deities::Desna,
+                    Deities::Erastil,
+                    Deities::Gorum,
+                    Deities::Gyronna,
+                    Deities::Hanspur,
+                    Deities::Iomedae,
+                    Deities::Lamashtu,
+                    Deities::Norgorber,
+                    ]),
+                }
+            }
+
+
+
     // Garund
     fn alijae() -> Self {
         // todo review technically this is an organization

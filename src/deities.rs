@@ -252,7 +252,11 @@ pub enum Deities {
     Lalaci,
     Lixiriltha,
     PeacockSpirit,
-    Diabolism // todo check this one
+    Diabolism,// todo check this one
+    Deskari,
+    IronGods,
+    Hadregash,
+    Razmir,
 }
 
 enum DeityCategories {

@@ -338,6 +338,19 @@ enum Government {
     Meritocracy,
     MilitaryDictatorship,
     MilitaryProtectorate,
+    MilitaryOligarchy,
+    SecretCouncilOfElders,
+    ArcaneMeritocracy,
+    MilitaristicTheocracy,
+    BarbaricMonarchy,
+    Autocracy,
+    BureaucraticMonarchy,
+    PirateDespotAndCouncil,
+    Satrapy(Nations),
+    Confederation,
+    TheocracticDictatorship,
+    MammothLordsTribal,
+    SqubblingMonarchies,
 }
 enum Individuals {
     Gyr,
@@ -385,6 +398,21 @@ enum Individuals {
     KamdynArnefax,
     Ulthun,
     AchilleParsall,
+    Irahai,
+    RastonSelline,
+    MarkwinTeldas,
+    NarvenFeathereyes,
+    BlackTriune,
+    WeslenGavirk,
+    KevothKul,
+    Azaersi,
+    CastruccioIrovetti,
+    EutropiaStavian,
+    UrdulBazzak,
+    Xerbystes,
+    JiliaBainilus,
+    Razmir,
+
 }
 
 pub enum PlanarNations {
