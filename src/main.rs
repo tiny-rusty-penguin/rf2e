@@ -348,9 +348,13 @@ enum Government {
     PirateDespotAndCouncil,
     Satrapy(Nations),
     Confederation,
-    TheocracticDictatorship,
+    TheocraticDictatorship,
     MammothLordsTribal,
-    SqubblingMonarchies,
+    SquabblingMonarchies,
+    Imperial,
+    LooseConfederacy,
+    UnaffiliatedCityStates,
+    LooseCollectionOfDemonicWarlords,
 }
 enum Individuals {
     Gyr,
@@ -412,6 +416,13 @@ enum Individuals {
     Xerbystes,
     JiliaBainilus,
     Razmir,
+    Harral,
+    Oakstewards,
+    Karzoug,
+    Xin,
+    CabolVoran,
+    UllorthUngin,
+    AduardOrdranti,
 
 }
 

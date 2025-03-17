@@ -1,6 +1,7 @@
 use crate::Individuals;
 use crate::location::nations::Nations;
 
+#[derive()]
 pub enum Settlements {
     // Absalom
     Abberton,
@@ -508,7 +509,7 @@ pub enum Settlements {
     Yanmass,
     Zimar,
 
-    // Protectoorate of the Black Marquis
+    // Protectorate of the Black Marquis
     Deadbridge,
 
     // Qadira
@@ -578,8 +579,69 @@ pub enum Settlements {
     Icestair,
     Tolguth,
 
+    // Sarkoris
+    MoonScreamGlade,
+    Valahuv,
+    Dyinglight,
+    Jormurdun,
+    ShadowSpring,
+    Iz,
+    Gundrun,
+    Railscrad,
+    Drezen,
 
-    // mixed
+    // Touvette
+    Avendale,
+    Voluse,
+    Seredain,
+
+    // Tymon
+    Tymon,
+
+    // Ustalav
+    Anactoria,
+    Ardagh,
+    Ardis,
+    AtonsField,
+    Berus,
+    Bladswell,
+    Caliphas,
+    CarrionHill,
+    CastleOdranto,
+    Cesca,
+    Chastel,
+    ChateauDouleurs,
+    Corvischior,
+    Courtaud,
+    Dunhob,
+    EransRest,
+    Grayce,
+    Hyannis,
+    Illmarsh,
+    Karcau,
+    Kavapesta,
+    Lepidstadt,
+    MarianLeigh,
+    Morast,
+    Morcei,
+    Ravengro,
+    Redleaf,
+    Rookhill,
+    Rozenport,
+    Ruwido,
+    Satravah,
+    SensPass,
+    Sturnidae,
+    Tamrivena,
+    Thrushmoor,
+    Tolbau,
+    Vauntil,
+    Vische,
+    WaitsSpan,
+
+
+
+// mixed
     Nagisa,
     AlkenstarCity,
     Peijita,
